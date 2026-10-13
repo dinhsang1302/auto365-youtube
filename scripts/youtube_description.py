@@ -29,7 +29,8 @@ def signature_errors(description, profile, category):
     outside = description.replace(signature, '')
     if re.search(r'(?:☎\s*)?(?:Tư vấn|Hotline)\s*:', outside, re.I) or 'AUTO365 |' in outside:
         errors.append('Description contains an extra or legacy signature/hotline block.')
-    known = [entry['phone'] for entry in profile['signatures'].values()]
+    known = [phone.strip() for entry in profile['signatures'].values()
+             for phone in entry['phone'].split(' - ')]
     known += [profile['brand']['wholesale_hotline'], profile['brand']['quality_hotline'],
               profile['brand']['superseded_phone_not_for_current_signature']]
     if any(re.search(r'(?<!\d)' + r'[\s.\-]*'.join(re.sub(r'\D', '', phone)) + r'(?!\d)', outside)

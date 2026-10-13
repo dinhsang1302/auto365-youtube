@@ -195,7 +195,7 @@ def prepare(args):
     profile = channel_profile(project_path(args.profile, root))
     # Windows sandbox can permit file reads while denying realpath/reparse queries
     # on Downloads. Inputs are read only; hash/open checks establish their identity.
-    video = Path(args.video).absolute()
+    video = project_path(args.video, root)
     if not video.is_file():
         raise FileNotFoundError(video)
     job = job_directory(args.job, args.workspace)
@@ -246,7 +246,7 @@ def prepare(args):
         artifacts = ['media.json', 'contact-sheet.jpg', 'frames.json', 'transcript.raw.json']
         write_json(job / 'frames.json', {'interval_seconds': interval, 'samples': timestamps})
         if has_audio:
-            model = Path(args.model_dir).absolute()
+            model = project_path(args.model_dir, root)
             if not (model / 'model.bin').is_file():
                 raise ValueError('A complete local faster-whisper model is required; downloads are disabled.')
             run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', str(video),

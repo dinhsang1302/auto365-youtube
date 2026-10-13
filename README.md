@@ -2,7 +2,7 @@
 
 Skill Codex cho workflow YouTube Auto365: tự đọc video, kiểm nguồn, nghiên cứu metadata, viết mô tả đủ chiều sâu, tạo thumbnail khi được giao và đăng/xác minh qua trình duyệt tích hợp.
 
-Bản phân phối 1.0.1 lấy từ skill đã cài/kiểm 1.0.0; giữ rules/templates/profile schema **8/2/8**. Phiên bản này tách cấu hình vận hành khỏi repo và thay mọi hồ sơ kiểm thử thực bằng dữ liệu tổng hợp. Không đóng gói media, ASR thật, Analytics, log phiên hoặc quyền đăng nhập.
+Bản phân phối 1.0.2; giữ rules/templates/profile schema **8/2/8**. Bản 1.0.2 sửa đường dẫn video/model tương đối trong prepare theo workspace và cập nhật tư vấn đèn/camera/phụ kiện thành **1900 9365 - 0365 365 911**; phim/PPF giữ **0587 365 365**, nhập sỉ/phản ánh giữ nguyên. Bộ phân phối tách cấu hình vận hành khỏi repo và thay mọi hồ sơ kiểm thử thực bằng dữ liệu tổng hợp. Không đóng gói media, ASR thật, Analytics, log phiên hoặc quyền đăng nhập.
 
 ## Cài vào Codex
 
@@ -52,7 +52,7 @@ Copy-Item (Join-Path $auto365SkillDir 'assets\templates\channel.example.json') (
 Copy-Item (Join-Path $auto365SkillDir 'assets\templates\products.example.json') (Join-Path $auto365Workspace 'products.json')
 ```
 
-Nếu file đích đã có, giữ nó và kiểm thay đổi trước khi thay; không copy lại template làm mất cấu hình. `--profile` cho phép chọn profile khác của workspace. Không có ID kênh cố định trong code; profile/job/preparation/editorial/review/brief/nguồn Analytics phải cùng ID. Mẫu không chứng minh quyền hoặc phiên đăng nhập: trước ghi phải xác minh lại đúng ID/quyền trong Studio.
+Khi nâng từ bản cũ, sửa riêng `signatures.lighting.phone`, `signatures.camera.phone`, `signatures.accessories.phone` trong profile đang dùng thành `1900 9365 - 0365 365 911`; giữ tuyến phim/PPF và hotline nhập sỉ/phản ánh. Git pull không tự thay cấu hình workspace. Nếu file đích đã có, giữ nó và kiểm thay đổi trước khi thay; không copy lại template làm mất cấu hình. `--profile` cho phép chọn profile khác của workspace. Không có ID kênh cố định trong code; profile/job/preparation/editorial/review/brief/nguồn Analytics phải cùng ID. Mẫu không chứng minh quyền hoặc phiên đăng nhập: trước ghi phải xác minh lại đúng ID/quyền trong Studio.
 
 Chữ ký vận hành chỉ sinh từ `workspace/channel.json`, một lần, đúng tuyến tư vấn; nhập sỉ **0369.878787** khác phản ánh chất lượng **0969.878787**. Không thay số theo website. Không đưa VAT vào mô tả/CTA/bình luận đề xuất; nguồn thương mại đầy đủ vẫn lưu trong workspace. Không gọi giá sản phẩm là giá hoàn thiện.
 
@@ -80,6 +80,8 @@ python SKILL_DIR/scripts/auto365_youtube.py render --workspace WORKSPACE --brief
 python SKILL_DIR/scripts/auto365_youtube.py validate --workspace WORKSPACE --job jobs/clip-01 --revision REV --output-dir reports/NEW_CHECK
 ```
 
+`prepare --video media/clip.mp4 --model-dir models/local --workspace WORKSPACE` giải cả hai đường dẫn dưới WORKSPACE, không theo cwd; đường dẫn tuyệt đối giữ nguyên.
+
 init-job chỉ ghi quyền/checkpoint local, không fetch URL hay đăng video. Validate chọn đúng revision/hash/review; không fallback root khi thiếu revision, không ghi đè kết quả cũ, không cắt narrative_sections. Xem [schema và runtime](references/runtime.md), [workflow](references/workflow.md), [browser/thumbnail/recovery](references/browser-and-thumbnail.md), [rules8](references/editorial-rules.md).
 
 Chạy phép kiểm từ một workspace được phép ghi (fixtures tạm ở cwd/tmp), không ghi job vào repo:
@@ -88,7 +90,7 @@ Chạy phép kiểm từ một workspace được phép ghi (fixtures tạm ở 
 python SKILL_DIR/scripts/auto365_youtube.py check
 ```
 
-Đã kiểm local: alias “đăng đi” và các ngoại lệ → action_request đúng; ID lấy từ profile và phát hiện mismatch; chọn revision/hash, giữ nguyên giải thích; đúng hotline/một chữ ký; chặn VAT/placeholder/chữ ký cũ; relocate bundle trên Windows hiện tại; thiếu config không tự dùng config vận hành trong bundle; các relative references hợp lệ. Fixtures tạo bytes tổng hợp để kiểm hash, không phải video đã decode hay transcript thật. Kiểm cấu trúc không chứng minh claim/giọng văn; nguồn thật vẫn cần editor.
+Đã kiểm local: prepare tìm đúng video/model khi cwd khác workspace và có file trùng tên ở cwd (các công cụ media và model được giả lập, không chạy ASR); alias “đăng đi” và các ngoại lệ → action_request đúng; ID lấy từ profile và phát hiện mismatch; chọn revision/hash, giữ nguyên giải thích; đúng hotline/một chữ ký; chặn VAT/placeholder/chữ ký cũ; relocate bundle trên Windows hiện tại; thiếu config không tự dùng config vận hành trong bundle; các relative references hợp lệ. Fixtures tạo bytes tổng hợp để kiểm hash, không phải video đã decode hay transcript thật. Kiểm cấu trúc không chứng minh claim/giọng văn; nguồn thật vẫn cần editor.
 
 Chưa kiểm toàn bộ nhánh upload/publish/lên lịch qua skill mới, phục hồi mất kết nối, media/ASR/ImageGen mới, hệ điều hành khác hoặc nguyên văn Gem gốc. Không tuyên bố những nhánh đó đã được kiểm chỉ vì check local qua.
 

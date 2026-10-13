@@ -32,3 +32,5 @@ Guidance: dùng catalog hiện tại; discover tìm tên auto365-writer/copywrit
 - `validate --revision REV|current|root`: REV chính xác; current theo checkpoint, root chỉ baseline được chọn rõ. Không fallback/sort khi sai/missing; dùng output-dir mới, không ghi đè lịch sử. So toàn rendered brief và narrative, không truncate; structural check không thay kiểm nguồn/semantic.
 
 `check` tạo fixtures tổng hợp ở cwd/tmp; chạy trong workspace được phép ghi. Fake bytes dùng hash-only, không là decode/ASR thật. Brief tổng hợp ở [brief.example.json](../assets/examples/brief.example.json) không phải metadata để đăng. Hồ sơ r4 thật ở môi trường gốc không đóng gói; việc giữ text được kiểm bằng fixtures tương đương và dữ liệu đã kiểm trước đây, không đổi lịch sử đã đăng.
+
+Trong `prepare`, `--video` và `--model-dir` tương đối được giải theo `--workspace`, cùng quy tắc `project_path`; đường dẫn tuyệt đối giữ nguyên. Kiểm hồi quy đổi cwd và đặt file cùng tên ở cả hai nơi; media/Pillow/model được giả lập, không chạy ASR.

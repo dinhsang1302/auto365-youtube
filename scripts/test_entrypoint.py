@@ -11,6 +11,7 @@ import unittest
 from youtube_editorial import read_json, write_json, sha256, channel_profile
 from youtube_description import assemble, signature_for, permission_for
 from youtube_job import action_request
+from test_prepare_paths import PreparePathTests
 
 SKILL = Path(__file__).resolve().parents[1]
 ENTRY = SKILL / 'scripts' / 'auto365_youtube.py'
@@ -171,9 +172,12 @@ class InstalledEntrypointTests(unittest.TestCase):
 
     def test_hotlines_vat_and_extra_signature(self):
         lighting = signature_for(PROFILE, 'lighting'); film = signature_for(PROFILE, 'window_film')
-        self.assertIn('☎ Tư vấn: 0365 365 911\n☎ Hotline nhập sỉ: 0369.878787\n☎ Hotline phản ánh chất lượng dịch vụ: 0969.878787', lighting)
-        self.assertEqual(lighting.replace('0365 365 911', '0587 365 365'), film)
-        for extra in ('Giá chưa VAT', '[cần xác minh]', lighting, 'Tư vấn: 0365 365 365'):
+        self.assertIn('☎ Tư vấn: 1900 9365 - 0365 365 911\n☎ Hotline nhập sỉ: 0369.878787\n☎ Hotline phản ánh chất lượng dịch vụ: 0969.878787', lighting)
+        self.assertEqual(lighting.replace('1900 9365 - 0365 365 911', '0587 365 365'), film)
+        for category in ('camera', 'accessories'):
+            self.assertEqual(signature_for(PROFILE, category), lighting)
+        self.assertEqual(signature_for(PROFILE, 'ppf'), film)
+        for extra in ('1900 9365', '0365 365 911', 'Giá chưa VAT', '[cần xác minh]', lighting, 'Tư vấn: 0365 365 365'):
             brief = copy.deepcopy(BRIEF); brief['cta'] = extra
             with self.subTest(extra=extra), self.assertRaises(ValueError): assemble(brief, PROFILE)
         self.assertFalse(permission_for({'channel_id':PROFILE['channel_id'],'action_request':{'mode':'prepare_only','authorized_actions':[],'channel_id':PROFILE['channel_id'],'source':'Synthetic test'}}, 'edit_description', 'description-r4', 'any-hash'))

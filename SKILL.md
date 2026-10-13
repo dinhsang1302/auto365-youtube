@@ -2,7 +2,7 @@
 name: auto365-youtube
 description: Biên tập và đăng video YouTube Auto365 qua trình duyệt tích hợp; tự đọc video, kiểm nguồn, nghiên cứu metadata, tạo thumbnail khi được giao và xác minh đúng revision sau lưu. Dùng cho job video cụ thể, không tự audit toàn kênh.
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
 ---
 
 # Auto365 YouTube
