@@ -1,0 +1,23 @@
+{
+  "channel_id": "UCfSB3t7meifCacbB4zOrW3w",
+  "category": "lighting",
+  "format": "long_form_horizontal",
+  "opening_lines": [
+    "Đây là nội dung tổng hợp chỉ để kiểm runtime, không dùng làm bản đăng."
+  ],
+  "narrative_sections": [
+    {
+      "purpose": "problem_or_need",
+      "text": "Đoạn giải thích kiểm thử giữ đầy đủ bối cảnh để bảo đảm script không cắt mất nội dung hữu ích. Đây không phải dữ kiện về một xe hoặc sản phẩm thật.",
+      "evidence": "Synthetic test marker; no real media or claim."
+    },
+    {
+      "purpose": "choice_or_installation_limit",
+      "text": "Phần lựa chọn trong fixture giúp kiểm text được giữ nguyên và thông tin kiểm nội bộ không lọt vào mô tả.",
+      "evidence": "Synthetic test marker; no real media or claim."
+    }
+  ],
+  "hashtags": [
+    "#Auto365"
+  ]
+}

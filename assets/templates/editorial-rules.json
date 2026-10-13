@@ -1,0 +1,335 @@
+{
+  "version": 8,
+  "effective_date": "2026-10-13",
+  "timezone": "Asia/Bangkok",
+  "authority": "User-confirmed project rules; newer user instructions take precedence",
+  "full_rules_file": "../../references/editorial-rules.md",
+  "fact_columns": [
+    "Dữ kiện",
+    "Nội dung nghe/thấy trong video",
+    "Timestamp đã kiểm",
+    "Nguồn đối chiếu",
+    "Trạng thái xác minh"
+  ],
+  "qa_columns": [
+    "Câu hỏi của người xem",
+    "Trả lời ngắn",
+    "SKU/xe liên quan",
+    "Timestamp",
+    "Nguồn",
+    "Trạng thái xác minh"
+  ],
+  "self_check_ids": [
+    "identity",
+    "facts",
+    "title_thumbnail",
+    "description",
+    "links_cta",
+    "chapters",
+    "clean_public_copy",
+    "signature"
+  ],
+  "review_statuses": [
+    "Đạt",
+    "Cần sửa",
+    "Chưa xác minh"
+  ],
+  "read_media_before_writing": true,
+  "reuse_completed_artifacts_for_same_hash": true,
+  "require_user_written_title_or_transcript": false,
+  "primary_keyword_count": 1,
+  "keyword_origin_required": true,
+  "invent_keyword_metrics": false,
+  "title_options": {
+    "preferred_count": 3,
+    "range_when_supported": [
+      1,
+      3
+    ],
+    "never_invent_angle_to_fill": true,
+    "description_only_edit_preserves_existing_title": true
+  },
+  "title_character_count": "Unicode code points after NFC normalization; record actual count, no forced filler",
+  "title_angles_require_content_evidence": true,
+  "price_angle_requires_verified_current_scope": true,
+  "description_order": [
+    "video_specific_opening",
+    "supported_problem_need_if_relevant",
+    "supported_notable_points_and_feature_use_meaning",
+    "useful_choice_installation_context_if_present",
+    "verified_price_warranty_if_relevant",
+    "verified_links_if_available",
+    "short_primary_cta",
+    "verified_timeline_if_present",
+    "single_category_signature",
+    "relevant_hashtags"
+  ],
+  "manual_chapters": {
+    "optional": true,
+    "first_seconds": 0,
+    "minimum_count": 3,
+    "minimum_duration_seconds": 10,
+    "include_final_segment_duration": true,
+    "all_boundaries_verified": true,
+    "no_equal_time_partition_without_content_evidence": true,
+    "block_heading": "TIMELINE CHI TIẾT",
+    "placement": "before_signature",
+    "prefer_natural_vehicle_owner_questions": true,
+    "reference_image_layout_only": true
+  },
+  "qa_internal_only_by_default": true,
+  "tags_separate_from_description": true,
+  "forced_hashtag_or_tag_length": false,
+  "pinned_comment": {
+    "optional": true,
+    "proposal_only_until_authorized": true,
+    "concrete_question": true,
+    "one_cta": true,
+    "no_vat": true
+  },
+  "verify_default_description_before_remote_write": true,
+  "deduplicate_signature_when_merging_defaults": true,
+  "prediction_scores_allowed": false,
+  "unverified_claim_examples": [
+    "thông số",
+    "giá",
+    "bảo hành",
+    "số chi nhánh",
+    "tương thích",
+    "kết quả đo",
+    "phá sương",
+    "không chói",
+    "không cản sóng",
+    "không lỗi VETC",
+    "không ảnh hưởng bảo hành",
+    "an toàn tuyệt đối",
+    "hiệu quả SEO",
+    "mọi phim kim loại gây phản chiếu taplo/chói mắt"
+  ],
+  "scope": {
+    "authority_source": "Latest job.action_request from user instructions",
+    "action_modes": [
+      "prepare_only",
+      "edit_existing",
+      "upload_private",
+      "upload_unlisted",
+      "publish_now",
+      "schedule"
+    ],
+    "no_global_preparation_turn_ban": true,
+    "unspecified_action_does_not_grant_permission": true,
+    "website_bundle_optional": true,
+    "reuse_existing_video_id_on_same_channel": true,
+    "save_before_after_for_assigned_edits": true,
+    "paid_calls_require_specific_authorization": true,
+    "connection_changes_require_specific_authorization": true
+  },
+  "updated_at": "2026-10-13T08:10:28.952716+00:00",
+  "website_links": {
+    "exact_product_variant_first": true,
+    "fallback": "Verified relevant hub/service page only",
+    "open_destination_before_use": true,
+    "invent_urls": false,
+    "require_clear_link_label": true
+  },
+  "signature_template_source": "workspace/channel.json#signature_template",
+  "keyword_research": {
+    "required_before_final_metadata": true,
+    "ask_user_for_keywords_by_default": false,
+    "sequence": [
+      "Read media and identify vehicle/product/category/main need",
+      "Search public YouTube/web and inspect relevant video metadata",
+      "Use available search queries only from verified exact channel Analytics",
+      "Select relevant keyword set and usually6–10hashtags if justified",
+      "Remove excessive semantic duplicates,wrong products,unmentioned locations,generic trends",
+      "Review title,description,tags as well as hashtags"
+    ],
+    "origins": [
+      "ANALYTICS_OBSERVED",
+      "TOOL_METRIC",
+      "PUBLIC_SEARCH_OBSERVED",
+      "EDITORIAL_PROPOSAL"
+    ],
+    "paid_services_without_specific_authorization": false,
+    "invent_volume_trend_difficulty_or_conversion": false,
+    "research_failure": "Continue with verified video facts; record tool/source limitations; ask only if essential information is missing",
+    "required_internal_artifact": "keyword-research.json"
+  },
+  "hashtags": {
+    "usual_range": [
+      6,
+      10
+    ],
+    "not_required_to_fill": true,
+    "video_specific": true,
+    "categories_if_present": [
+      "vehicle",
+      "product",
+      "brand",
+      "category",
+      "need",
+      "Auto365"
+    ],
+    "avoid_semantic_overduplication": true
+  },
+  "tags_review": {
+    "required_before_final_metadata": true,
+    "separate_studio_field": true,
+    "check": [
+      "Vehicle/year/version and usefulcommonspellings",
+      "Exact model/brand and usefulconfusablevariants",
+      "Actual installation category andneed",
+      "Auto365/Auto365 Review"
+    ],
+    "no_forced_count_or_length": true,
+    "exclude_other_vehicles_models_or_irrelevant_generic_words": true,
+    "read_back_after_save": true
+  },
+  "description_editing": {
+    "voice": "Vietnamese, direct, natural automotive installer introduction, easy for car owners",
+    "opening": "Exact vehicle/product/upgrade and useful viewing value in first two lines",
+    "select_useful_facts_not_full_install_checklist": true,
+    "short_paragraphs": true,
+    "avoid_report_phrases": [
+      "phạm vi giá",
+      "cấu hình sản phẩm được giới thiệu",
+      "nội dung gồm",
+      "được trình bày để tham khảo"
+    ],
+    "avoid_repetitive_openings": [
+      "video giúp",
+      "có thể cân nhắc",
+      "theo công bố",
+      "cần kiểm tra"
+    ],
+    "avoid_generic_sales_openings": [
+      "Bạn đang tìm kiếm",
+      "giải pháp hoàn hảo",
+      "nâng tầm trải nghiệm"
+    ],
+    "answer_inline": [
+      "installation position",
+      "evidence-backed notable features",
+      "product reference price scope and completed-vehicle quote",
+      "information needed for consultation"
+    ],
+    "forced_faq_or_keyword_density": false,
+    "preserve_verified_conditions": "Technical/warranty conditions stay public when relevant; tax and full commercial data stay internal under public_commercial.",
+    "limits": "One short limitation next to its claim when needed; no mandatory lux/power/measurement disclaimer unrelated to claim",
+    "never_invent": [
+      "customer needs or statements",
+      "driving experience",
+      "measurements",
+      "fitment",
+      "safety/superiority or SEO/AI-citation guarantee"
+    ],
+    "ai_search": "Clear entities, units, scope, contextual answers and relevant source URLs; no promised indexing/ranking/citation",
+    "local_search": "Only verified actual facility/location, no place-name stuffing",
+    "before_handoff_questions": [
+      "Immediately clear what this video covers?",
+      "Report tone or repeatedkeywords?",
+      "Anything that does not help carowner?",
+      "Important facts and conditions still complete?",
+      "Did shortening remove a useful explanation actually present in the video?",
+      "Are feature-use meanings grounded in video/source rather than inferred from watts/Kelvin?",
+      "Does the depth match this format and clip content without filler?"
+    ],
+    "remote_scope": "Latest user task controls permission; draft-only request forbids remote edits even if this video was previously authorized for publication.",
+    "avoid_default_opening": "Cùng xem… trước khi chọn cấu hình",
+    "avoid_repetitive_audience_address": "Do not repeat các anh across paragraphs",
+    "cta": "Short, specific, easy action",
+    "concise_definition": "Remove filler and repeated ideas; preserve useful explanations and enough consultation context.",
+    "depth_proportional_to_actual_video_content": true,
+    "fixed_word_count": null,
+    "fixed_paragraph_count": null,
+    "feature_meaning_requires_source": true,
+    "infer_effect_from_watts_or_kelvin": false,
+    "long_form": "Expand supported problem/need, notable points, feature-use meaning, choice/installation advice, optional price/warranty, CTA; choose sections that actually exist in the clip.",
+    "shorts": "Short according to actual content; no forced long-form narrative or uniform length.",
+    "template_source": "description-templates.json",
+    "templates_are_suggestions_not_required_sections": true,
+    "gem_style": "Retain problem explanation and owner-question answers; remove clichés, repetition and unsupported claims. Do not claim to have read an unavailable original Gem.",
+    "ai_search_depth": "Clear answers with sufficient context and consistent facts; no keyword padding or citation/ranking promises."
+  },
+  "public_commercial": {
+    "mention_vat": false,
+    "applies_to": [
+      "description",
+      "cta",
+      "proposed_comment"
+    ],
+    "internal_sources_keep_tax_scope": true,
+    "price_optional": true,
+    "price_requires_verified_amount_unit_product_scope": true,
+    "lighting_price_pattern": "Giá bộ đèn tham khảo: {amount_vnd} đồng/{unit}. Liên hệ Auto365 để được tư vấn cấu hình và báo giá hoàn thiện theo xe.",
+    "never_label_product_price_as_total_or_installed_price": true,
+    "assume_installation_adjustment_accessories_always_separate": false,
+    "warranty_optional": true,
+    "warranty": "Short verified duration and conditions; no invented terms"
+  },
+  "description_sections": {
+    "links_optional": true,
+    "fixed_link_count": null,
+    "price_optional": true,
+    "warranty_optional": true,
+    "chapters_optional": true,
+    "related_urls_optional": true,
+    "opening_guidance": "Usually first1–2lines name subject and viewing value; no fixed opening length across formats.",
+    "narrative_sections_optional": true
+  },
+  "signature_rendering": "../../scripts/youtube_description.py:signature_for",
+  "brand_source": "workspace/channel.json#brand_and_signatures",
+  "revision_validation": {
+    "selection_required": true,
+    "current_follows_checkpoint_not_filename_sort": true,
+    "metadata_and_self_check_same_revision": true,
+    "check_description_sha256": true,
+    "compare_full_rendered_brief": true,
+    "outputs_never_overwrite_history": true,
+    "local_validation_does_not_grant_remote_authority": true
+  },
+  "runtime_paths": {
+    "workspace_from": "--workspace or cwd ancestors with rules marker",
+    "never_infer_workspace_from_script_location": true,
+    "derived_outputs_stay_inside_workspace": true,
+    "relative_cli_paths_use_selected_workspace": true
+  },
+  "thumbnail": {
+    "source": "Matching supplied thumbnail or real frames from the current video",
+    "imagegen_requires_job_specific_authority": true,
+    "inspect_style_reference_before_claiming_seen": true,
+    "real_subject_and_exact_model_preserved": true,
+    "no_synthetic_beam_as_actual_test_result": true,
+    "inspect_text_model_and_image_after_generation": true,
+    "store_in_job": true
+  },
+  "remote_verification": {
+    "browser": "Codex In-app Browser",
+    "check_live_channel_id_and_role": true,
+    "capture_before_fields": true,
+    "wait_for_saved_and_disabled_save": true,
+    "reload_and_read_back": true,
+    "compare_exact_approved_revision": "Normalize CRLF/LF and trailing newline only; no silent wording/symbol changes",
+    "verify_other_fields_unchanged_for_scoped_edit": true,
+    "unexpected_changes": "Inspect before saving; newest user instruction controls content",
+    "record_revision_hash_timestamp_screenshot": true
+  },
+  "invocation_defaults": {
+    "trusted_user_shorthand": [
+      "đăng đi",
+      "đăng clip này",
+      "đăng video này"
+    ],
+    "requires_video_link_or_file": true,
+    "default_mode": "publish_now",
+    "default_channel_source": "workspace/channel.json",
+    "agent_select_metadata_and_thumbnail_after_checks": true,
+    "built_in_imagegen_thumbnail_authorized_by_shorthand": true,
+    "other_paid_services_authorized": false,
+    "per_component_reapproval_required": false,
+    "latest_specific_request_overrides_default": true,
+    "check_existing_job_and_video_before_upload": true,
+    "ask_only_for_essential_missing_info_access_or_auth": true,
+    "initializer": "../../scripts/youtube_job.py"
+  }
+}

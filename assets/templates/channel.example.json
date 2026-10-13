@@ -1,0 +1,58 @@
+{
+  "version": 8,
+  "channel_name": "Auto365 Review",
+  "handle": "@ChannelAuto365",
+  "channel_id": "UCfSB3t7meifCacbB4zOrW3w",
+  "public_url": "https://www.youtube.com/@ChannelAuto365",
+  "studio_url": "https://studio.youtube.com/channel/UCfSB3t7meifCacbB4zOrW3w",
+  "timezone": "Asia/Bangkok",
+  "signatures": {
+    "lighting": {
+      "phone": "0365 365 911"
+    },
+    "camera": {
+      "phone": "0365 365 911"
+    },
+    "accessories": {
+      "phone": "0365 365 911"
+    },
+    "window_film": {
+      "phone": "0587 365 365"
+    },
+    "ppf": {
+      "phone": "0587 365 365"
+    }
+  },
+  "policies": {
+    "action_authority": "Latest specific job action_request; channel profile never grants or permanently forbids job actions",
+    "when_action_unspecified": "Prepare for review; no inferred remote action",
+    "current_job_restriction_not_global": true,
+    "paid_calls_require_specific_authorization": true,
+    "connection_changes_require_specific_authorization": true,
+    "website_seo_requirements_in_youtube_description": false,
+    "store_auth_secrets": false,
+    "mixed_category_signature": "Main service chooses phone; both only when both services are actually covered and separately labelled."
+  },
+  "brand": {
+    "website": "https://auto365.vn",
+    "branches_url": "https://auto365.vn/chi-nhanh",
+    "superseded_phone_not_for_current_signature": "0365 365 365",
+    "quality_hotline": "0969.878787",
+    "head_office_address": "4/4/1/7 Đường Số 3, Phường Hiệp Bình, TP. Hồ Chí Minh.",
+    "head_office_map": "https://maps.app.goo.gl/sPeztDd996rHyLQM8",
+    "facebook": "https://www.facebook.com/Auto365.vn",
+    "wholesale_hotline": "0369.878787"
+  },
+  "editorial_rules": "../../references/editorial-rules.md",
+  "signature_template": "AUTO365 | Hệ thống nâng cấp xe toàn quốc\n☎ Tư vấn: {phone}\n☎ Hotline nhập sỉ: 0369.878787\n☎ Hotline phản ánh chất lượng dịch vụ: 0969.878787\n🏤 Trụ sở: 4/4/1/7 Đường Số 3, Phường Hiệp Bình, TP. Hồ Chí Minh.\nBản đồ: https://maps.app.goo.gl/sPeztDd996rHyLQM8\n► Website: https://auto365.vn\nTìm chi nhánh: https://auto365.vn/chi-nhanh\n► Facebook: https://www.facebook.com/Auto365.vn",
+  "signature_brand_line": "AUTO365 | Hệ thống nâng cấp xe toàn quốc",
+  "phone_route_source": "signatures.<category>.phone",
+  "signature_policy_source": "editorial-rules.json",
+  "session_policy": {
+    "require_live_studio_channel_id_and_role_before_write": true,
+    "analytics_requires_same_channel_id_and_permission": true,
+    "local_config_is_not_session_evidence": true
+  },
+  "example_only": true,
+  "configuration_note": "Copy to an external workspace/channel.json; verify target ID and live Studio access before writes."
+}

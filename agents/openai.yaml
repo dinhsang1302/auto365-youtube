@@ -1,0 +1,6 @@
+interface:
+  display_name: "Auto365 YouTube"
+  short_description: "Biên tập, đăng và xác minh video YouTube Auto365"
+  default_prompt: "Dùng $auto365-youtube với link/file video tôi cung cấp: đăng đi, tự xử lý nội dung và thumbnail ImageGen, đăng công khai đúng kênh cấu hình rồi xác minh và trả link."
+policy:
+  allow_implicit_invocation: true

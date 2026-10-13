@@ -1,0 +1,75 @@
+{
+  "version": 2,
+  "policy_source": "editorial-rules.json#description_editing",
+  "kind": "editor_prompts_not_required_sections",
+  "usage": "Choose and combine only purposes supported by this video; write source-reviewed narrative_sections.text. Purpose/evidence fields stay internal.",
+  "fixed_word_count": null,
+  "minimum_paragraph_count": null,
+  "format_detection": "Use actual video format and content, not duration alone to call a video Shorts.",
+  "long_form": {
+    "goal": "Useful consultation depth proportional to what the clip actually explains",
+    "suggested_purposes": [
+      {
+        "purpose": "problem_or_need",
+        "prompt": "What problem or decision does this clip address? Explain the context without inventing this customer's own need."
+      },
+      {
+        "purpose": "notable_point",
+        "prompt": "What is worth watching in this vehicle/product case, and what visual or spoken evidence supports it?"
+      },
+      {
+        "purpose": "feature_and_use_meaning",
+        "prompt": "What does a stated feature allow the owner to choose or understand? Keep the supported usage meaning next to the feature; do not infer brightness/safety from watts or Kelvin."
+      },
+      {
+        "purpose": "choice_or_installation_limit",
+        "prompt": "Which actual trade-off or fitment point helps the owner choose? Explain why it matters; select useful points instead of listing the full workshop checklist."
+      },
+      {
+        "purpose": "price_or_warranty",
+        "prompt": "Include only when relevant and verified. Use public_commercial policy; keep full commercial source facts internal."
+      },
+      {
+        "purpose": "cta",
+        "prompt": "One easy action and the essential information needed for advice."
+      }
+    ]
+  },
+  "shorts": {
+    "goal": "Compact explanation matching the actual moment, question or feature shown",
+    "suggested_purposes": [
+      {
+        "purpose": "shown_subject",
+        "prompt": "State what this clip actually shows or answers in a natural opening."
+      },
+      {
+        "purpose": "use_meaning_or_limit",
+        "prompt": "Add the supported meaning or necessary limitation if the clip contains it; omit unsupported sections."
+      },
+      {
+        "purpose": "cta_if_useful",
+        "prompt": "Use a short relevant action when needed; no forced long-form storyline."
+      }
+    ]
+  },
+  "gem_style_selection": {
+    "retain": [
+      "Explain the owner's problem or decision",
+      "Answer a natural vehicle-owner question with enough context"
+    ],
+    "remove": [
+      "Clichés",
+      "Repeated ideas",
+      "Claims without sources"
+    ],
+    "source_note": "Principles supplied by user; not a claim to have read an unprovided original Gem document."
+  },
+  "policy_version": 8,
+  "render_contract": {
+    "narrative_sections": "Each included section has non-empty text, purpose and reviewed evidence; only complete text enters public copy",
+    "text_preservation": "Strip outer whitespace only; never summarize/truncate to hit a word count",
+    "optional_sections": "Select by content and format, not a mandatory checklist",
+    "overflow": "Raise error beyond platform limit; editor revises explicitly",
+    "signature": "Render only from channel.signature_template, no independent template copy"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "products": [],
+  "usage": "Populate canonical names and sources for each job in workspace/products.json; do not invent SOURCE_VERIFIED records."
+}

@@ -1,0 +1,192 @@
+{
+  "version": 3,
+  "kind": "browser_workflow_with_local_editorial_stage",
+  "implementation_status": "Local revision-aware validation tested; in-app browser actions executed by agent under current job authorization, not a headless publisher",
+  "checked_date": "2026-10-13",
+  "browser": "Codex In-app Browser",
+  "required_job_inputs": {
+    "job_id": "Mã duy nhất cho mỗi yêu cầu",
+    "channel_id": "ID kênh đích do người dùng cung cấp hoặc xác nhận",
+    "video_path": "Đường dẫn tuyệt đối tới video",
+    "thumbnail_path": "Nếu cần thumbnail: dùng file phù hợp hoặc cách tạo đã được cấp quyền; hỏi khi thiếu.",
+    "content_brief": "Thông tin đã có của job; agent tự đọc media/nguồn, chỉ hỏi thiếu thiết yếu.",
+    "audience": "Agent chọn theo nội dung thật; hỏi nếu thiếu căn cứ thiết yếu.",
+    "other_required_disclosures": "Khai báo theo nội dung và câu hỏi Studio hiển thị; hỏi người dùng nếu thiếu căn cứ",
+    "publication_mode": "draft | private | unlisted | publish_now | schedule",
+    "publish_at": "Ngày giờ ISO 8601 có offset; bắt buộc khi schedule",
+    "timezone": "Asia/Bangkok (UTC+07:00) mặc định theo phiên; đối chiếu với Studio",
+    "authorized_action": "Quyền upload, đăng hoặc lên lịch đúng video và kênh đích"
+  },
+  "steps": [
+    {
+      "number": 1,
+      "action": "Nhận file và brief; kiểm tra file tồn tại, đọc được, kích thước và định dạng. Tính SHA-256 video và thumbnail bằng công cụ cục bộ; lưu bản ghi job."
+    },
+    {
+      "number": 2,
+      "action": "Đọc media/nguồn và nghiên cứu từ khóa, viết metadata theo rules hiện hành; chỉ đổi trường được giao. Chế độ hành động và quyền lấy từ yêu cầu job; chỉ chuẩn bị thì trình bản local, đã cấp quyền sau kiểm thì thực hiện trong phạm vi."
+    },
+    {
+      "number": 3,
+      "action": "Mở đúng tab tích hợp. So khớp channel_id từ Studio với job; sai kênh thì dừng. Khóa job theo channel_id + video_sha256. Đối chiếu nhật ký và Nội dung, gồm Video, Shorts và trạng thái nháp/riêng tư/không công khai/lên lịch/công khai; kiểm tra các trang kết quả cần thiết."
+    },
+    {
+      "number": 4,
+      "action": "Nếu đã có video ID đúng kênh/nội dung, bỏ upload, mở đúng ID và chỉ điền trường được giao. Nếu cần upload mới và có quyền: ghi UPLOAD_INTENT, chờ filechooser và setFiles đúng file; ghi ID ngay khi có. Audience/khai báo/thumbnail theo nội dung và phạm vi job."
+    },
+    {
+      "number": 5,
+      "action": "Chờ upload hoàn tất và kiểm tra trạng thái xử lý/kiểm tra theo Studio. Chỉ đăng hoặc lên lịch khi có chỉ thị cụ thể của người dùng. Đối chiếu lại kênh, video_id, nội dung, thumbnail và ngày giờ. Ghi COMMIT_INTENT trước khi bấm nút cuối."
+    },
+    {
+      "number": 6,
+      "action": "Chờ Studio báo đã lưu/nút Lưu vô hiệu hóa, tải lại và đọc đúng revision/hash đã chốt; với sửa metadata chỉ so trường được giao và xác minh các trường khác giữ nguyên. Kiểm đúng ID/kênh/quyền/trạng thái; lưu snapshot, ảnh và revision đã áp dụng. Trang xem dùng cho kiểm công khai khi phù hợp; không coi thao tác bấm Lưu là bằng chứng đã áp dụng."
+    },
+    {
+      "number": 7,
+      "action": "Khi lỗi, ghi bước, thời điểm, URL, video_id nếu có, thông báo và ảnh. Nếu có video_id, mở lại video đó để tiếp tục. Nếu thiếu video_id hoặc trạng thái commit chưa rõ, kiểm tra Nội dung trước khi thử lại. Không tự upload lại hay bấm đăng lại khi chưa xác định được kết quả trước đó."
+    }
+  ],
+  "planned_persistence": {
+    "directory": "youtube-jobs/<job_id>/",
+    "files": [
+      "job.json",
+      "events.jsonl",
+      "evidence/"
+    ],
+    "checkpoint_fields": [
+      "job_id",
+      "state",
+      "channel_id",
+      "video_path",
+      "video_sha256",
+      "thumbnail_path",
+      "thumbnail_sha256",
+      "metadata",
+      "publication_mode",
+      "publish_at",
+      "timezone",
+      "video_id",
+      "studio_url",
+      "watch_url",
+      "attempt_count",
+      "last_action",
+      "last_error",
+      "last_checked_at",
+      "evidence_paths"
+    ],
+    "writes": "Ghi checkpoint nguyên tử trước/sau hành động gây thay đổi, thêm sự kiện vào nhật ký; không ghi mật khẩu, cookie hay OTP.",
+    "states": [
+      "RECEIVED",
+      "PREPARED",
+      "PREFLIGHT_PASSED",
+      "UPLOAD_INTENT",
+      "UPLOADING",
+      "VIDEO_CREATED",
+      "METADATA_READY",
+      "CHECKING",
+      "READY_TO_COMMIT",
+      "COMMIT_INTENT",
+      "VERIFIED_PUBLISHED",
+      "VERIFIED_SCHEDULED",
+      "VERIFIED_PRIVATE",
+      "VERIFIED_UNLISTED",
+      "WAITING_FOR_USER",
+      "UNCERTAIN",
+      "FAILED"
+    ]
+  },
+  "duplicate_detection_limits": [
+    "SHA-256 trong nhật ký xác định cùng file đã xử lý; Studio không cung cấp hash video gốc để đối chiếu trực tiếp.",
+    "Video cũ ngoài nhật ký chỉ có thể đối chiếu theo tiêu đề, tên file trong Chi tiết, thời lượng, ngày upload và nội dung; đây là tín hiệu, không phải chứng minh cùng byte.",
+    "Video được xuất lại có hash khác vẫn có thể trùng nội dung. Nếu nghi trùng hoặc tìm kiếm không kết luận được, dừng và xin người dùng quyết định.",
+    "Không cam kết exactly-once khi mất kết nối giữa thao tác và ghi checkpoint; dùng trạng thái UNCERTAIN và kiểm tra Studio trước khi thử lại."
+  ],
+  "handoff_rules": [
+    "Đăng nhập, 2FA, CAPTCHA: người dùng thực hiện.",
+    "Yêu cầu mới nhất của từng job quyết định mode/action; không đưa hạn chế một lượt vào mặc định vĩnh viễn.",
+    "Mỗi lần ghi Studio cần xác minh lại đúng channel_id; hồ sơ local không thay phiên đăng nhập hiện hành.",
+    "Trước upload phải kiểm Nội dung và checkpoint theo đúng kênh/hash; video test ở Nguyen Hoa không chứng minh Auto365 đã có/chưa có bản tương tự.",
+    "Sau lỗi hoặc kết quả không rõ, mở lại video_id hoặc kiểm danh sách trước khi thử lại; không tự upload lại.",
+    "Local tool không là tác vụ nền, worker đăng hoặc OAuth/API upload."
+  ],
+  "channel_profile": "workspace/channel.json",
+  "editorial_stage": {
+    "tool": "../scripts/youtube_editorial.py",
+    "stages": [
+      "Verify target channel and scope",
+      "FFprobe, full decode, sampled frames, audio extraction",
+      "Offline faster-whisper ASR",
+      "Editor checks terms and separates raw from corrected transcript",
+      "Writer V1.8 locks product/specs/price/warranty sources for claims actually published",
+      "Public YouTube/web keyword and hashtag research; combine exact-channel Analytics when available; record sources and review all metadata",
+      "Copywriting prepares three titles and selected metadata with category signature",
+      "Content strategy maps relevant queries, pillar and proposed playlist",
+      "Local structural validation plus editor source review",
+      "Check scope of explicit user remote-action authorization; otherwise present content for review"
+    ],
+    "no_remote_actions_in_script": true,
+    "output_files": [
+      "preparation.json",
+      "media.json",
+      "transcript.raw.json",
+      "transcript.reviewed.json",
+      "source-lock.json",
+      "editorial.json",
+      "validation.json",
+      "content-preview.txt",
+      "facts.csv",
+      "qa.csv",
+      "self-check.json",
+      "description.txt",
+      "pinned-comment-proposal.txt",
+      "keyword-research.json"
+    ],
+    "approval_rule": "Latest job.action_request controls actions. Prepare-only is local; explicit authority for exact target/action after checks permits continuation without asking again. Local validation never grants authority.",
+    "rules_version": 8,
+    "resume_policy": "Tái dùng bước hoàn tất; không chạy lại audit/ASR/upload chỉ để sửa metadata.",
+    "remote_write_preconditions": [
+      "Đúng ID kênh hiện hành",
+      "Người dùng giao hành động cụ thể",
+      "Đọc mặc định và hợp nhất chữ ký",
+      "Video đã có dùng đúng ID/kênh; lưu trước/sau",
+      "Nếu lỗi kiểm video/checkpoint trước retry",
+      "Revision đã chọn được validate bằng metadata/review/hash của chính revision ấy",
+      "Không còn lỗi hoặc tự kiểm trọng yếu cần sửa/chưa xác minh"
+    ],
+    "policy_source": "../assets/templates/editorial-rules.json",
+    "description_assembler": "../scripts/youtube_description.py",
+    "signature_source": "channel_profile.signature_template",
+    "optional_sections": [
+      "links",
+      "reference_price",
+      "warranty",
+      "chapters",
+      "related_urls",
+      "pinned_comment_proposal"
+    ],
+    "paid_calls_rule": "Only specifically authorized paid service for that job; no blanket permission.",
+    "narrative_templates": "../assets/templates/description-templates.json"
+  },
+  "updated_at": "2026-10-13T08:10:28.952716+00:00",
+  "editorial_rules": "editorial-rules.md",
+  "editorial_rules_config": "../assets/templates/editorial-rules.json",
+  "runtime": {
+    "workspace": "Explicit --workspace or cwd project marker; independent of script installation",
+    "validation": "--revision <id|current|root>; use a new --output-dir",
+    "revision_readback": "Selected metadata, review, description hash and full brief must match"
+  },
+  "metadata_outputs": {
+    "title": "Đầu ra khi nhiệm vụ gồm title; không yêu cầu người dùng viết sẵn.",
+    "description": "Mô tả và hashtag đã kiểm tra"
+  },
+  "thumbnail_stage": {
+    "source": "Matching supplied thumbnail or real frames from the current video",
+    "imagegen_requires_job_specific_authority": true,
+    "inspect_style_reference_before_claiming_seen": true,
+    "real_subject_and_exact_model_preserved": true,
+    "no_synthetic_beam_as_actual_test_result": true,
+    "inspect_text_model_and_image_after_generation": true,
+    "store_in_job": true
+  }
+}
