@@ -2,7 +2,7 @@
 name: auto365-youtube
 description: Biên tập và đăng video YouTube Auto365 qua trình duyệt tích hợp; tự đọc video, kiểm nguồn, nghiên cứu metadata, tạo thumbnail khi được giao và xác minh đúng revision sau lưu. Dùng cho job video cụ thể, không tự audit toàn kênh.
 metadata:
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # Auto365 YouTube
@@ -22,7 +22,7 @@ Tìm auto365-writer/copywriting/content-strategy bằng catalog hiện tại ho�
 3. Tự nghiên cứu YouTube/web mỗi video trước final; Analytics chỉ đúng ID/quyền. Lưu query/URL/ngày/origin/lý do/limits; phân biệt metric và đề xuất, không bịa volume/trend. Rà title/description/hashtag và **tags riêng Studio**, không đợi nhắc/ép số lượng. Search lỗi ghi giới hạn, tiếp tục dữ kiện đã kiểm.
 4. Title tạo ba góc khi nội dung cho phép, chọn một/đếm ký tự thật; description-only giữ trường khác. Mô tả như người làm nghề: mở vào xe/model/điểm đáng xem, giải thích đủ vấn đề–tính năng–ý nghĩa–lựa chọn có nguồn, CTA ngắn. Gọn bỏ thừa/lặp, không bỏ chiều sâu; Shorts và video dài theo nội dung, templates không ép đủ mục/độ dài/FAQ. Không sáo rỗng, giọng báo cáo, nhồi từ khóa hoặc hứa top/AI citation.
 5. narrative_sections có text/purpose/evidence, chỉ text xuất public; không truncate. **Không VAT** trong mô tả/CTA/bình luận đề xuất; giá sản phẩm không là giá hoàn thiện. Giá/bảo hành/link/chapters tùy nguồn/nội dung. Link đúng model/đích đã mở.
-6. Timeline mốc thật, không chia đều/copy mẫu: 00:00,≥3mốc tăng, mỗi đoạn≥10s kể cả cuối; đặt TIMELINE CHI TIẾT trước chữ ký. Một chữ ký theo profile: ☎tư vấn đúng dịch vụ, nhập sỉ và phản ánh đúng số/thứ tự; không đổi theo website. Hashtag sát chủ đề; 6–10 chỉ gợi ý khi đủ liên quan. Comment chỉ là đề xuất nếu chưa có quyền.
+6. Timeline mốc thật, không chia đều/copy mẫu: 00:00,≥3mốc tăng, mỗi đoạn≥10s kể cả cuối; đặt TIMELINE CHI TIẾT trước chữ ký. Một chữ ký theo profile: ☎tư vấn đúng dịch vụ và phản ánh đúng số/thứ tự; không đổi theo website. Hashtag sát chủ đề; 6–10 chỉ gợi ý khi đủ liên quan. Comment chỉ là đề xuất nếu chưa có quyền.
 
 ## Browser, thumbnail và bàn giao
 

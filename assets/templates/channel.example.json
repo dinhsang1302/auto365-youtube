@@ -40,11 +40,10 @@
     "quality_hotline": "0969.878787",
     "head_office_address": "4/4/1/7 Đường Số 3, Phường Hiệp Bình, TP. Hồ Chí Minh.",
     "head_office_map": "https://maps.app.goo.gl/sPeztDd996rHyLQM8",
-    "facebook": "https://www.facebook.com/Auto365.vn",
-    "wholesale_hotline": "0369.878787"
+    "facebook": "https://www.facebook.com/Auto365.vn"
   },
   "editorial_rules": "../../references/editorial-rules.md",
-  "signature_template": "AUTO365 | Hệ thống nâng cấp xe toàn quốc\n☎ Tư vấn: {phone}\n☎ Hotline nhập sỉ: 0369.878787\n☎ Hotline phản ánh chất lượng dịch vụ: 0969.878787\n🏤 Trụ sở: 4/4/1/7 Đường Số 3, Phường Hiệp Bình, TP. Hồ Chí Minh.\nBản đồ: https://maps.app.goo.gl/sPeztDd996rHyLQM8\n► Website: https://auto365.vn\nTìm chi nhánh: https://auto365.vn/chi-nhanh\n► Facebook: https://www.facebook.com/Auto365.vn",
+  "signature_template": "AUTO365 | Hệ thống nâng cấp xe toàn quốc\n☎ Tư vấn: {phone}\n☎ Hotline phản ánh chất lượng dịch vụ: 0969.878787\n🏤 Trụ sở: 4/4/1/7 Đường Số 3, Phường Hiệp Bình, TP. Hồ Chí Minh.\nBản đồ: https://maps.app.goo.gl/sPeztDd996rHyLQM8\n► Website: https://auto365.vn\nTìm chi nhánh: https://auto365.vn/chi-nhanh\n► Facebook: https://www.facebook.com/Auto365.vn",
   "signature_brand_line": "AUTO365 | Hệ thống nâng cấp xe toàn quốc",
   "phone_route_source": "signatures.<category>.phone",
   "signature_policy_source": "editorial-rules.json",

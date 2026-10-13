@@ -172,11 +172,20 @@ class InstalledEntrypointTests(unittest.TestCase):
 
     def test_hotlines_vat_and_extra_signature(self):
         lighting = signature_for(PROFILE, 'lighting'); film = signature_for(PROFILE, 'window_film')
-        self.assertIn('☎ Tư vấn: 1900 9365 - 0365 365 911\n☎ Hotline nhập sỉ: 0369.878787\n☎ Hotline phản ánh chất lượng dịch vụ: 0969.878787', lighting)
+        self.assertIn('☎ Tư vấn: 1900 9365 - 0365 365 911\n☎ Hotline phản ánh chất lượng dịch vụ: 0969.878787', lighting)
         self.assertEqual(lighting.replace('1900 9365 - 0365 365 911', '0587 365 365'), film)
         for category in ('camera', 'accessories'):
             self.assertEqual(signature_for(PROFILE, category), lighting)
         self.assertEqual(signature_for(PROFILE, 'ppf'), film)
+        for category in PROFILE['signatures']:
+            output = signature_for(PROFILE, category)
+            self.assertNotIn('nhập sỉ', output)
+            self.assertNotIn('0369.878787', output)
+            self.assertEqual(output.count('☎ Tư vấn:'), 1)
+            self.assertEqual(output.count('☎ Hotline phản ánh chất lượng dịch vụ:'), 1)
+        legacy = copy.deepcopy(PROFILE)
+        legacy['signature_template'] = legacy['signature_template'].replace('☎ Hotline phản ánh', '☎ Hotline nhập sỉ: 0369.878787\n☎ Hotline phản ánh')
+        with self.assertRaises(ValueError): signature_for(legacy, 'lighting')
         for extra in ('1900 9365', '0365 365 911', 'Giá chưa VAT', '[cần xác minh]', lighting, 'Tư vấn: 0365 365 365'):
             brief = copy.deepcopy(BRIEF); brief['cta'] = extra
             with self.subTest(extra=extra), self.assertRaises(ValueError): assemble(brief, PROFILE)

@@ -14,7 +14,6 @@ def signature_for(profile, category):
     phone = profile['signatures'][category]['phone']
     signature = profile['signature_template'].format(phone=phone)
     expected = (f"☎ Tư vấn: {phone}\n"
-                f"☎ Hotline nhập sỉ: {profile['brand']['wholesale_hotline']}\n"
                 f"☎ Hotline phản ánh chất lượng dịch vụ: {profile['brand']['quality_hotline']}")
     if expected not in signature or signature.count(profile['signature_brand_line']) != 1:
         raise ValueError('Channel template has incorrect hotline labels, order, numbers or repeated signature.')
@@ -31,7 +30,7 @@ def signature_errors(description, profile, category):
         errors.append('Description contains an extra or legacy signature/hotline block.')
     known = [phone.strip() for entry in profile['signatures'].values()
              for phone in entry['phone'].split(' - ')]
-    known += [profile['brand']['wholesale_hotline'], profile['brand']['quality_hotline'],
+    known += [profile['brand']['quality_hotline'],
               profile['brand']['superseded_phone_not_for_current_signature']]
     if any(re.search(r'(?<!\d)' + r'[\s.\-]*'.join(re.sub(r'\D', '', phone)) + r'(?!\d)', outside)
            for phone in known):
