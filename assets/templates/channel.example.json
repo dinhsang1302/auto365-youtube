@@ -8,19 +8,24 @@
   "timezone": "Asia/Bangkok",
   "signatures": {
     "lighting": {
-      "phone": "1900 9365 - 0365 365 911"
+      "phone": "0365 365 911",
+      "consultation_label": "Tư vấn đèn đồ chơi xe"
     },
     "camera": {
-      "phone": "1900 9365 - 0365 365 911"
+      "phone": "0365 365 911",
+      "consultation_label": "Tư vấn đèn đồ chơi xe"
     },
     "accessories": {
-      "phone": "1900 9365 - 0365 365 911"
+      "phone": "0365 365 911",
+      "consultation_label": "Tư vấn đèn đồ chơi xe"
     },
     "window_film": {
-      "phone": "0587 365 365"
+      "phone": "0587 365 365",
+      "consultation_label": "Tư vấn phim cách nhiệt / PPF"
     },
     "ppf": {
-      "phone": "0587 365 365"
+      "phone": "0587 365 365",
+      "consultation_label": "Tư vấn phim cách nhiệt / PPF"
     }
   },
   "policies": {
@@ -37,13 +42,13 @@
     "website": "https://auto365.vn",
     "branches_url": "https://auto365.vn/chi-nhanh",
     "superseded_phone_not_for_current_signature": "0365 365 365",
-    "quality_hotline": "0969.878787",
+    "quality_hotline": "1900.9365",
     "head_office_address": "4/4/1/7 Đường Số 3, Phường Hiệp Bình, TP. Hồ Chí Minh.",
     "head_office_map": "https://maps.app.goo.gl/sPeztDd996rHyLQM8",
     "facebook": "https://www.facebook.com/Auto365.vn"
   },
   "editorial_rules": "../../references/editorial-rules.md",
-  "signature_template": "AUTO365 | Hệ thống nâng cấp xe toàn quốc\n☎ Tư vấn: {phone}\n☎ Hotline phản ánh chất lượng dịch vụ: 0969.878787\n🏤 Trụ sở: 4/4/1/7 Đường Số 3, Phường Hiệp Bình, TP. Hồ Chí Minh.\nBản đồ: https://maps.app.goo.gl/sPeztDd996rHyLQM8\n► Website: https://auto365.vn\nTìm chi nhánh: https://auto365.vn/chi-nhanh\n► Facebook: https://www.facebook.com/Auto365.vn",
+  "signature_template": "AUTO365 | Hệ thống nâng cấp xe toàn quốc\n☎ {consultation_label}: {phone}\n☎ Hotline phản ánh chất lượng dịch vụ: {quality_hotline}\n🏤 Trụ sở: 4/4/1/7 Đường Số 3, Phường Hiệp Bình, TP. Hồ Chí Minh.\nBản đồ: https://maps.app.goo.gl/sPeztDd996rHyLQM8\n► Website: https://auto365.vn\nTìm chi nhánh: https://auto365.vn/chi-nhanh\n► Facebook: https://www.facebook.com/Auto365.vn",
   "signature_brand_line": "AUTO365 | Hệ thống nâng cấp xe toàn quốc",
   "phone_route_source": "signatures.<category>.phone",
   "signature_policy_source": "editorial-rules.json",

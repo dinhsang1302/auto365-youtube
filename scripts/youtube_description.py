@@ -12,8 +12,10 @@ from youtube_editorial import read_json, write_json, job_directory, validate_man
 
 def signature_for(profile, category):
     phone = profile['signatures'][category]['phone']
-    signature = profile['signature_template'].format(phone=phone)
-    expected = (f"☎ Tư vấn: {phone}\n"
+    label = profile['signatures'][category].get('consultation_label', 'Tư vấn')
+    signature = profile['signature_template'].format(phone=phone, consultation_label=label,
+                                                      quality_hotline=profile['brand']['quality_hotline'])
+    expected = (f"☎ {label}: {phone}\n"
                 f"☎ Hotline phản ánh chất lượng dịch vụ: {profile['brand']['quality_hotline']}")
     if expected not in signature or signature.count(profile['signature_brand_line']) != 1:
         raise ValueError('Channel template has incorrect hotline labels, order, numbers or repeated signature.')
@@ -26,7 +28,7 @@ def signature_errors(description, profile, category):
     if description.count(signature) != 1 or description.count(profile['signature_brand_line']) != 1:
         errors.append('Description must contain exactly one current category signature.')
     outside = description.replace(signature, '')
-    if re.search(r'(?:☎\s*)?(?:Tư vấn|Hotline)\s*:', outside, re.I) or 'AUTO365 |' in outside:
+    if re.search(r'(?:☎\s*)?(?:Tư vấn[^:\n]*|Hotline[^:\n]*)\s*:', outside, re.I) or 'AUTO365 |' in outside:
         errors.append('Description contains an extra or legacy signature/hotline block.')
     known = [phone.strip() for entry in profile['signatures'].values()
              for phone in entry['phone'].split(' - ')]

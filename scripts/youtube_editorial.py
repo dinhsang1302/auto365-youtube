@@ -184,7 +184,7 @@ def merge_exact_signature(description, default_description, signature):
     This helper does not inspect Studio or certify the final saved description.
     """
     pieces = [part.replace(signature, '').strip() for part in [default_description, description]]
-    if any('AUTO365 |' in part or re.search(r'(?:☎\s*)?(?:Tư vấn|Hotline)\s*:', part, re.I)
+    if any('AUTO365 |' in part or re.search(r'(?:☎\s*)?(?:Tư vấn[^:\n]*|Hotline[^:\n]*)\s*:', part, re.I)
            for part in pieces):
         raise ValueError('A legacy or differently worded signature needs editor review before merging.')
     return '\n\n'.join([part for part in pieces if part] + [signature])

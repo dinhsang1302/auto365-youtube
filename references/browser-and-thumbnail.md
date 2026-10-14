@@ -19,7 +19,7 @@
 
 ## Readback và retry
 
-- Sau Save, chờ thông báo đã lưu/nút Save disabled; reload đọc lại. So nguyên text đã chốt: chỉ chuẩn hóa CRLF/LF và newline cuối, không bỏ ☎ hoặc thay lời. Kiểm một chữ ký và ba tuyến hotline đúng profile, đúng thứ tự. So các trường ngoài scope với before; thumbnail có thể chuẩn hóa bỏ tham số cache nhưng giữ asset/version.
+- Sau Save, chờ thông báo đã lưu/nút Save disabled; reload đọc lại. So nguyên text đã chốt: chỉ chuẩn hóa CRLF/LF và newline cuối, không bỏ ☎ hoặc thay lời. Kiểm một chữ ký, dòng tư vấn đúng ngành hàng và dòng phản ánh chất lượng1900.9365 đúng profile/thứ tự; không có hotline nhập sỉ. So các trường ngoài scope với before; thumbnail có thể chuẩn hóa bỏ tham số cache nhưng giữ asset/version.
 - Sau publish/schedule, mở Studio và trang xem khi phù hợp, kiểm ID/kênh/trạng thái/lịch/title/description/thumb/tags theo phạm vi. Chỉ ghi VERIFIED_* khi có bằng chứng. Lưu URL/revision/hash/thời điểm/snapshot/ảnh và embed ảnh xác minh khi bàn giao thao tác thật.
 - Nếu timeout/mất kết nối/lỗi save hoặc commit chưa rõ: ghi UNCERTAIN + URL/ID/bước/error/ảnh, đọc kết quả hiện có trước retry. Không bấm publish/upload lại khi chưa rõ. Có ID thì mở chính ID đó, thiếu ID thì kiểm danh sách kênh. Không hứa exactly-once.
 

@@ -2,7 +2,7 @@
 
 Skill Codex cho workflow YouTube Auto365: tự đọc video, kiểm nguồn, nghiên cứu metadata, viết mô tả đủ chiều sâu, tạo thumbnail khi được giao và đăng/xác minh qua trình duyệt tích hợp.
 
-Bản phân phối 1.0.3; giữ rules/templates/profile schema **8/2/8**. Bản 1.0.3 sửa đường dẫn video/model tương đối trong prepare theo workspace và cập nhật tư vấn đèn/camera/phụ kiện thành **1900 9365 - 0365 365 911**; phim/PPF giữ **0587 365 365**, phản ánh giữ nguyên và bỏ dòng nhập sỉ. Bộ phân phối tách cấu hình vận hành khỏi repo và thay mọi hồ sơ kiểm thử thực bằng dữ liệu tổng hợp. Không đóng gói media, ASR thật, Analytics, log phiên hoặc quyền đăng nhập.
+Bản phân phối **1.0.4**, giữ rules/templates/profile schema **8/2/8**. Chữ ký mới: đèn/camera/phụ kiện dùng “☎ Tư vấn đèn đồ chơi xe: 0365 365 911”; phim/PPF dùng “☎ Tư vấn phim cách nhiệt / PPF: 0587 365 365”; phản ánh chất lượng **1900.9365**, không có nhập sỉ. Bộ phân phối dùng hồ sơ kiểm tổng hợp, giữ cấu hình vận hành ngoài repo.
 
 ## Cài vào Codex
 
@@ -52,9 +52,9 @@ Copy-Item (Join-Path $auto365SkillDir 'assets\templates\channel.example.json') (
 Copy-Item (Join-Path $auto365SkillDir 'assets\templates\products.example.json') (Join-Path $auto365Workspace 'products.json')
 ```
 
-Khi nâng từ bản cũ, sửa riêng `signatures.lighting.phone`, `signatures.camera.phone`, `signatures.accessories.phone` trong profile đang dùng thành `1900 9365 - 0365 365 911`; giữ tuyến phim/PPF và hotline phản ánh; bỏ dòng nhập sỉ khỏi `signature_template` và xóa `brand.wholesale_hotline`. Git pull không tự thay cấu hình workspace. Nếu file đích đã có, giữ nó và kiểm thay đổi trước khi thay; không copy lại template làm mất cấu hình. `--profile` cho phép chọn profile khác của workspace. Không có ID kênh cố định trong code; profile/job/preparation/editorial/review/brief/nguồn Analytics phải cùng ID. Mẫu không chứng minh quyền hoặc phiên đăng nhập: trước ghi phải xác minh lại đúng ID/quyền trong Studio.
+Khi nâng từ bản cũ, cập nhật `signatures.<category>.phone`, `signatures.<category>.consultation_label`, `brand.quality_hotline` và `signature_template` theo mẫu mới; đừng thay toàn bộ profile làm mất cấu hình riêng. Git pull không tự thay cấu hình workspace. Nếu file đích đã có, giữ nó và kiểm thay đổi trước khi thay; không copy lại template làm mất cấu hình. `--profile` cho phép chọn profile khác của workspace. Không có ID kênh cố định trong code; profile/job/preparation/editorial/review/brief/nguồn Analytics phải cùng ID. Mẫu không chứng minh quyền hoặc phiên đăng nhập: trước ghi phải xác minh lại đúng ID/quyền trong Studio.
 
-Chữ ký vận hành chỉ sinh từ `workspace/channel.json`, một lần, đúng tuyến tư vấn; phản ánh chất lượng **0969.878787** nằm ngay sau tư vấn, không có dòng nhập sỉ. Không thay số theo website. Không đưa VAT vào mô tả/CTA/bình luận đề xuất; nguồn thương mại đầy đủ vẫn lưu trong workspace. Không gọi giá sản phẩm là giá hoàn thiện.
+Chữ ký vận hành chỉ sinh từ `workspace/channel.json`, một lần, đúng tuyến tư vấn; phản ánh chất lượng **1900.9365** nằm ngay sau tư vấn, không có dòng nhập sỉ. Không thay số theo website. Không đưa VAT vào mô tả/CTA/bình luận đề xuất; nguồn thương mại đầy đủ vẫn lưu trong workspace. Không gọi giá sản phẩm là giá hoàn thiện.
 
 ## Cách gọi ngắn
 

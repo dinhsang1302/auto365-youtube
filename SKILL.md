@@ -2,7 +2,7 @@
 name: auto365-youtube
 description: Biên tập và đăng video YouTube Auto365 qua trình duyệt tích hợp; tự đọc video, kiểm nguồn, nghiên cứu metadata, tạo thumbnail khi được giao và xác minh đúng revision sau lưu. Dùng cho job video cụ thể, không tự audit toàn kênh.
 metadata:
-  version: "1.0.3"
+  version: "1.0.4"
 ---
 
 # Auto365 YouTube
@@ -14,6 +14,8 @@ Khi người dùng gọi skill, đưa link/file video và nói **“đăng đi�
 Ghi cách hiểu đó bằng `init-job` vào job.action_request: mode/quyền/kênh/source/selection policy; sửa mô tả khóa revision/hash trước ghi. Quyền cũ không thắng giới hạn mới, prepare-only không ghi remote. Đọc checkpoint trước; reuse cùng hash và đúng ID, không audit/upload lại để sửa metadata hoặc áp clip test sang clip mới. Ví dụ lời gọi nằm trong [runtime](references/runtime.md).
 
 Tìm auto365-writer/copywriting/content-strategy bằng catalog hiện tại hoặc `discover`, đọc SKILL.md khi dùng. Chỉ lấy kiểm nguồn/claim, văn phong/CTA, phân nhóm/playlist; không kéo chuẩn SEO website vào YouTube. Thiếu guidance/Gem gốc thì báo phạm vi và dùng rules tự chứa, không nhận đã đọc nguồn chưa có.
+
+Workflow: Nhận video → Phân tích hình ảnh/âm thanh → Kiểm chứng thông tin → Nghiên cứu từ khóa → Viết nội dung SEO → Tạo thumbnail → Đăng video → Kiểm tra và trả link. Chỉ chạy các bước phù hợp phạm vi job; sửa chữ ký trên video có sẵn thì giữ nguyên phần còn lại.
 
 ## Biên tập
 
