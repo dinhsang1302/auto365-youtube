@@ -50,7 +50,8 @@
         "purpose": "cta_if_useful",
         "prompt": "Use a short relevant action when needed; no forced long-form storyline."
       }
-    ]
+    ],
+    "signature_source": "channel.json#shorts_signature_template"
   },
   "gem_style_selection": {
     "retain": [
@@ -70,6 +71,8 @@
     "text_preservation": "Strip outer whitespace only; never summarize/truncate to hit a word count",
     "optional_sections": "Select by content and format, not a mandatory checklist",
     "overflow": "Raise error beyond platform limit; editor revises explicitly",
-    "signature": "Render only from channel.signature_template, no independent template copy"
+    "signature": "Render from channel.shorts_signature_template when brief.format is shorts; otherwise channel.signature_template. No independent contact copy.",
+    "timeline": "For long-form: verified meaningful chapters, or explicit not_applicable review with reason/evidence; not-yet-reviewed is blocked, not a passing omission",
+    "copyright": "Exactly once in the full long-form signature for Auto365-produced videos; do not append it to the three-line Shorts signature. Review source rights in either format."
   }
 }

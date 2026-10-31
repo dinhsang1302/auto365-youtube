@@ -45,3 +45,6 @@ venv/
 *.png
 *.webp
 *.gif
+# Public brand/style references are part of the skill.
+!/assets/brand/*.png
+!/assets/thumbnail-references/*.png

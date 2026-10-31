@@ -19,5 +19,10 @@
   ],
   "hashtags": [
     "#Auto365"
-  ]
+  ],
+  "timeline_review": {
+    "decision": "not_applicable",
+    "reason": "Synthetic single-topic test only",
+    "evidence": "No actual footage; do not use this fixture as production evidence"
+  }
 }

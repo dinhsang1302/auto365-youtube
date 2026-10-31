@@ -75,7 +75,11 @@
     "block_heading": "TIMELINE CHI TIẾT",
     "placement": "before_signature",
     "prefer_natural_vehicle_owner_questions": true,
-    "reference_image_layout_only": true
+    "reference_image_layout_only": true,
+    "long_form_assessment_required": true,
+    "silent_omission_allowed": false,
+    "omission_requires_reason_and_evidence": true,
+    "unreviewed_omission_status": "Cần sửa, not Đạt"
   },
   "qa_internal_only_by_default": true,
   "tags_separate_from_description": true,
@@ -132,9 +136,46 @@
     "invent_urls": false,
     "require_clear_link_label": true
   },
-  "signature_template_source": "workspace/channel.json#signature_template",
+  "signature_template_source": "channel.json#signature_template",
   "keyword_research": {
     "required_before_final_metadata": true,
+    "category_keywords": {
+      "required": true,
+      "authority": "User instruction 2026-10-17: key word đăng thì phải có key như đèn bi gầm, đèn bi led, phim cách nhiệt,camera ...",
+      "required_surfaces": [
+        "title",
+        "studio_tags"
+      ],
+      "title_clarification": "User 2026-10-17: ý là tiêu đề nữa cũng phải có, tiêu đề đang cụt quá, cập nhật vào skill luôn",
+      "title_guidance": "A complete natural title includes the actual category, vehicle/model and supported hook; do not shorten away the category or append unrelated keyword lists.",
+      "question_hook_clarity": {
+        "authority": "User 2026-10-17: phải là sao chủ xe vẫn đổi; cập nhật skill cho các tiêu đề tương tự",
+        "requirement": "Decision-explanation questions preserve the supported subject, action and context; shorten surrounding words rather than leaving an ambiguous fragment.",
+        "preferred_example": "Đèn zin vẫn sáng, sao chủ xe vẫn đổi?",
+        "avoid_fragments_in_this_context": [
+          "sao đổi?",
+          "sao vẫn đổi?"
+        ],
+        "scope": "Similar newly authored or authorized title edits; not a ban on concise clear choice questions and not permission to bulk-edit existing videos."
+      },
+      "scope": "Include relevant category terms alongside actual vehicle/model/need; select categories present in the clip rather than every channel category.",
+      "examples": {
+        "lighting": [
+          "đèn bi gầm",
+          "đèn bi LED"
+        ],
+        "window_film": [
+          "phim cách nhiệt"
+        ],
+        "camera": [
+          "camera",
+          "camera hành trình",
+          "camera 360"
+        ]
+      },
+      "examples_only_when_relevant": true,
+      "studio_tags_readback_required": true
+    },
     "ask_user_for_keywords_by_default": false,
     "sequence": [
       "Read media and identify vehicle/product/category/main need",
@@ -278,7 +319,7 @@
     "narrative_sections_optional": true
   },
   "signature_rendering": "../../scripts/youtube_description.py:signature_for",
-  "brand_source": "workspace/channel.json#brand_and_signatures",
+  "brand_source": "channel.json#brand_and_signatures",
   "revision_validation": {
     "selection_required": true,
     "current_follows_checkpoint_not_filename_sort": true,
@@ -301,7 +342,37 @@
     "real_subject_and_exact_model_preserved": true,
     "no_synthetic_beam_as_actual_test_result": true,
     "inspect_text_model_and_image_after_generation": true,
-    "store_in_job": true
+    "store_in_job": true,
+    "lighting_vehicle_posters_require_product_light_and_actual_installed_vehicle": true,
+    "people_optional": true,
+    "no_verified_vehicle": "Record missing evidence; do not invent a car or present another case as this video",
+    "original_logo_asset_required": true,
+    "logo_must_not_be_retyped_or_regenerated": true,
+    "white_logo": "../brand/auto365-white.png",
+    "black_logo": "../brand/auto365-black.png",
+    "visuals_must_support_every_headline_claim": true,
+    "three_temperature_versions_require_three_verified_visuals_and_correct_labels": true,
+    "recolor_one_photo_as_multiple_tests": false,
+    "lessons_revision": "thumbnail-evidence-logo-2026-10-15",
+    "spelling_review_required_on_final_export": true,
+    "review_at_full_and_mobile_size": true,
+    "incorrect_diacritic_blocks_upload": true,
+    "required_review_artifact": "thumbnail-review.json",
+    "reference_ctr_requires_actual_analytics": true,
+    "brand_logo_placement_default": "Small official asset at top-left; newer job instructions override",
+    "preserve_user_selected_text_style_when_correcting_spelling": true,
+    "logo_contrast_review_required": true,
+    "logo_red_digits_on_red_background": "Use clean placement or soft neutral background shading; preserve original colors; no visible rounded box or outline by default",
+    "shorts_default": {
+      "authority": "HUMAN_USER_MESSAGE 2026-10-30",
+      "create_custom_thumbnail": false,
+      "use": "Existing/automatic frame from the actual video",
+      "generate_thumbnail_imagegen": false,
+      "edit_thumbnail": false,
+      "explicit_thumbnail_request_overrides_default": true,
+      "when_explicitly_requested": "Use the existing ImageGen artwork workflow and quality gate",
+      "long_form_workflow_unchanged": true
+    }
   },
   "remote_verification": {
     "browser": "Codex In-app Browser",
@@ -322,7 +393,7 @@
     ],
     "requires_video_link_or_file": true,
     "default_mode": "publish_now",
-    "default_channel_source": "workspace/channel.json",
+    "default_channel_source": "channel.json",
     "agent_select_metadata_and_thumbnail_after_checks": true,
     "built_in_imagegen_thumbnail_authorized_by_shorthand": true,
     "other_paid_services_authorized": false,
@@ -330,6 +401,41 @@
     "latest_specific_request_overrides_default": true,
     "check_existing_job_and_video_before_upload": true,
     "ask_only_for_essential_missing_info_access_or_auth": true,
-    "initializer": "../../scripts/youtube_job.py"
+    "initializer": "../../scripts/youtube_job.py",
+    "thumbnail_scope": "Long-form default workflow includes ImageGen; Shorts keep the automatic video frame unless the user explicitly requests a custom thumbnail. Normalize job.action_request after verifying format."
+  },
+  "advertising_review": {
+    "required_before_final_public_copy": true,
+    "policy_revision": "advertising-review-2026-10-15",
+    "policy_reference": "../../references/advertising-law.md",
+    "required_internal_artifact": "advertising-review.json",
+    "review_all_public_surfaces": true,
+    "evaluate_claim_context_not_blanket_word_ban": true,
+    "internal_guidance_is_not_statutory_text": true,
+    "metadata_edit_does_not_remedy_embedded_video_claims": true,
+    "legal_compliance_guarantee": false
+  },
+  "copyright_notice": {
+    "source": "channel.json#signature_template",
+    "one_notice_only": true,
+    "review_rights_and_scope": true,
+    "scope": "Full long-form signature; user-approved three-line Shorts signature omits the notice. Rights review remains required for both."
+  },
+  "completeness_revision": "timeline-copyright-2026-10-15",
+  "shorts_signature": {
+    "source": "channel.json#shorts_signature_template",
+    "authority": "HUMAN_USER_MESSAGE 2026-10-30",
+    "placement": "Description, exactly once; three lines: brand, routed consultation, quality feedback hotline",
+    "omit_full_signature_extras": true,
+    "long_form_signature_unchanged": true
+  },
+  "scheduling": {
+    "authority": "HUMAN_USER_MESSAGE 2026-10-30",
+    "applies_to": "Shorts and long-form videos in the authorized job",
+    "use_requested_date_and_time": true,
+    "default_timezone_source": "channel.json#timezone (Vietnam time, GMT+7), unless the user specifies another timezone",
+    "time_only": "Use an explicit date from the current job context, otherwise today if the requested time is still ahead. Ask only for an ambiguous date or a past time; never silently roll to another day or publish immediately.",
+    "record": "Save the resolved ISO timestamp with offset in action_request.publish_at before scheduling.",
+    "verify": "Reload the correct Studio video and confirm scheduled state, calendar date, time and timezone before reporting success."
   }
 }

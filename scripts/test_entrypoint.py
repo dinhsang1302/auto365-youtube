@@ -170,6 +170,29 @@ class InstalledEntrypointTests(unittest.TestCase):
                                               '--job', job, '--revision', 'current', '--output-dir', f'checks/mismatch-{index}').returncode, 0)
                 write_json(path, original)
 
+    def test_validate_shorts_uses_selected_brief_format(self):
+        from youtube_description import description_sha256
+        with tempfile.TemporaryDirectory(dir=TEST_ROOT) as temp:
+            work = Path(temp)
+            job = fixture(work)
+            revision = job / 'revisions/description-r4'
+            brief = read_json(revision / 'brief.json')
+            brief.update(format='shorts', chapters=[])
+            write_json(revision / 'brief.json', brief)
+            text = assemble(brief, PROFILE)
+            self.assertNotIn('Trụ sở:', text)
+            self.assertIn('☎ Hotline phản ánh: 1900.9365', text)
+            metadata = read_json(revision / 'metadata.proposed.json')
+            metadata.update(description=text, chapters=[])
+            write_json(revision / 'metadata.proposed.json', metadata)
+            (revision / 'description.after.txt').write_text(text, encoding='utf-8')
+            review = read_json(revision / 'review.json')
+            review['after_sha256'] = description_sha256(text)
+            write_json(revision / 'review.json', review)
+            result = invoke('validate', '--workspace', work, '--job', job,
+                            '--revision', 'current', '--output-dir', 'checks/shorts', cwd=work)
+            self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+
     def test_hotlines_vat_and_extra_signature(self):
         lighting = signature_for(PROFILE, 'lighting'); film = signature_for(PROFILE, 'window_film')
         self.assertIn('☎ Tư vấn đèn đồ chơi xe: 0365 365 911\n☎ Hotline phản ánh chất lượng dịch vụ: 1900.9365', lighting)

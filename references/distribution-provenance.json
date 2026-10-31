@@ -1,0 +1,159 @@
+{
+  "skill_version": "1.0.16",
+  "date": "2026-10-31",
+  "scope": "Current rules, templates, runtime, public brand/style assets; external workspace configuration and synthetic test fixtures.",
+  "hash_policy": "source_sha256 hashes source bytes; distributed_sha256 normalizes text CRLF to LF as required by .gitattributes. PNG hashes use original bytes.",
+  "excluded": [
+    "production jobs and media",
+    "transcripts and Analytics",
+    "credentials and machine configuration",
+    "historical production example",
+    "internal product and keyword registries"
+  ],
+  "files": [
+    {
+      "path": "SKILL.md",
+      "source_sha256": "b9a2afb9a7055b4144d652fbd8887e0a6ad9aaa713837100b853a2ebaf21ee7d",
+      "distributed_sha256": "22c455217c592d8cae1ba405832221672a523d68f8cbf35d2da371968b6e1ff9",
+      "adapted_for_public_distribution": true
+    },
+    {
+      "path": "agents/openai.yaml",
+      "source_sha256": "84f384a487a6421d1df0611b3520d4d74deb65fb156f23ea7a1e0563d231aff2",
+      "distributed_sha256": "84f384a487a6421d1df0611b3520d4d74deb65fb156f23ea7a1e0563d231aff2",
+      "adapted_for_public_distribution": false
+    },
+    {
+      "path": "references/advertising-law.md",
+      "source_sha256": "b5f191a7d94a8963e99c5aff38c65d58fcb7469c21462e1cae3d4d46e08f8e2a",
+      "distributed_sha256": "b5f191a7d94a8963e99c5aff38c65d58fcb7469c21462e1cae3d4d46e08f8e2a",
+      "adapted_for_public_distribution": false
+    },
+    {
+      "path": "references/browser-and-thumbnail.md",
+      "source_sha256": "d493c258a79d8c7ebc8ad4ed8bfce3ad768361a46401b7ac024ade251b264771",
+      "distributed_sha256": "8fd1bb9fb74802bfe1f0e7268fdbde7ce8d4d9c0390a243f560036e9a781490c",
+      "adapted_for_public_distribution": true
+    },
+    {
+      "path": "references/codex-browser-only.md",
+      "source_sha256": "6899192161340323bff556335470db6b41297727c1e8066219cc4fbfc28b7273",
+      "distributed_sha256": "fe34054616dca29b11ac66d0c336196e5267714d8d6f2fdf0b697bb46cc78462",
+      "adapted_for_public_distribution": true
+    },
+    {
+      "path": "references/editorial-rules.md",
+      "source_sha256": "3631ee78357a9c791904711ed63e48520403e94bbcd37df59ceaeb209109b253",
+      "distributed_sha256": "1dc9ed1eada8bf3c6e2f376fae7fa37e7802007d532e6019200b7166f7856c87",
+      "adapted_for_public_distribution": true
+    },
+    {
+      "path": "references/imagegen-workflow.md",
+      "source_sha256": "7976631a585ade920abe92cf62d43e4191c515e8394eb284fec16a284ab2dc81",
+      "distributed_sha256": "7976631a585ade920abe92cf62d43e4191c515e8394eb284fec16a284ab2dc81",
+      "adapted_for_public_distribution": false
+    },
+    {
+      "path": "references/packaging-style.md",
+      "source_sha256": "b812615b603d89b66695bc9531d5f52a2db13b1846637521951a82f68ca5ab4a",
+      "distributed_sha256": "b3c2b751bdd558cb8f8bf146556c1b8249d1a5786d7bb6ecbfd801cd23bc2966",
+      "adapted_for_public_distribution": true
+    },
+    {
+      "path": "references/runtime.md",
+      "source_sha256": "25835b19e8eff02b9ed9933c2523ad049d2405d15722f861ffaeca72d44dcb53",
+      "distributed_sha256": "d46ccb31652f2b09dd00a3e43af8bc5c2d4306e84b5f25b6f539ef97da05f7a5",
+      "adapted_for_public_distribution": true
+    },
+    {
+      "path": "references/thumbnail-quality-gate.md",
+      "source_sha256": "c33dbf3d904d4f80f1fc985378171b1f246562fd9f4b2a133ab7961817147207",
+      "distributed_sha256": "4371bb482dcf8e219e4bf52e48ab39e0e9569a35a0c168d5612b5e3cdf60b434",
+      "adapted_for_public_distribution": true
+    },
+    {
+      "path": "references/workflow.md",
+      "source_sha256": "86844102a90071199c26293cd347b5c04da39a87bf6aabaedff50d9eee6bd580",
+      "distributed_sha256": "e54c39245b1285a5aa5ad4c3e770e5e73cd26f91b4970b02a36dd00ed997f694",
+      "adapted_for_public_distribution": true
+    },
+    {
+      "path": "references/browser-workflow.json",
+      "source_sha256": "6b57491418c97b86e646d4761d525e3da102d68bdc7e60475281eda4e79d0134",
+      "distributed_sha256": "9aee78b0e17bb9b2cd91156c6ae682e4728b12cb13ec59fe9c3efbcca0ae5c59",
+      "adapted_for_public_distribution": true
+    },
+    {
+      "path": "assets/templates/description-templates.json",
+      "source_sha256": "2c6a0f6b43368449075849a8d5a2c282a948722314f2867e0fc4184de515e810",
+      "distributed_sha256": "d94dcc52743564489516ed9dcafdb525f2e2304f04fd1cc0e60d832521bb5aa5",
+      "adapted_for_public_distribution": true
+    },
+    {
+      "path": "assets/templates/editorial-rules.json",
+      "source_sha256": "6672547bf42c56eca73f13539de28894a47e6e6070468eac96c792153bbde8d7",
+      "distributed_sha256": "9b8e8d14330f475ef3fb0d75267d8647855524a41e843d62c0bf0be53f171fea",
+      "adapted_for_public_distribution": true
+    },
+    {
+      "path": "scripts/youtube_description.py",
+      "source_sha256": "f76a548b7d74ae664597391d401a81b5ea04af5f560f1c2434992832bef3a10f",
+      "distributed_sha256": "5b06ae99e04fe02fba4012707dd2cdb6cb206dc50e18d3665cb2a73b6d5af7d4",
+      "adapted_for_public_distribution": true
+    },
+    {
+      "path": "scripts/youtube_editorial.py",
+      "source_sha256": "efcc67f2f5d4b48dcd354cdf24f0bc48e66a8de7552a7ca2cc3221c7bf73e7cd",
+      "distributed_sha256": "6a3b29d8de4227e28729ea2e6c39bbb49178bbceb1be7031dc35c651058598ae",
+      "adapted_for_public_distribution": true
+    },
+    {
+      "path": "scripts/test_prepare_paths.py",
+      "source_sha256": "0db672093053a25c123f4683c219255c692f9df2a280801444fa45272aa28277",
+      "distributed_sha256": "0db672093053a25c123f4683c219255c692f9df2a280801444fa45272aa28277",
+      "adapted_for_public_distribution": false
+    },
+    {
+      "path": "scripts/test_description_completeness.py",
+      "source_sha256": "b55cf40ea4dd6d90b2f2b15e88bd223884e79185b81cbfc0594ad899bb66508a",
+      "distributed_sha256": "046bb9612f3b2041d4c295ba909885b859fd4b984f7a3d8c979f58f83700ff4a",
+      "adapted_for_public_distribution": true
+    },
+    {
+      "path": "assets/brand/auto365-black.png",
+      "source_sha256": "f71c2ae10e85bc084c433f7d8cadc7e2fe8fa9ac5e58703ff8c77420874a7c85",
+      "distributed_sha256": "f71c2ae10e85bc084c433f7d8cadc7e2fe8fa9ac5e58703ff8c77420874a7c85",
+      "adapted_for_public_distribution": false
+    },
+    {
+      "path": "assets/brand/auto365-white.png",
+      "source_sha256": "8f86eeeb0fd86f9fb8717478768fbb0acb7ca510ab84395787969462c1f3e7a8",
+      "distributed_sha256": "8f86eeeb0fd86f9fb8717478768fbb0acb7ca510ab84395787969462c1f3e7a8",
+      "adapted_for_public_distribution": false
+    },
+    {
+      "path": "assets/thumbnail-references/auto365-channel-mazda-creta-20261017.png",
+      "source_sha256": "fb0288e3351575ed862b9821a3fab6c53e940b5f95636671c82ff74bd45cdfa1",
+      "distributed_sha256": "fb0288e3351575ed862b9821a3fab6c53e940b5f95636671c82ff74bd45cdfa1",
+      "adapted_for_public_distribution": false
+    },
+    {
+      "path": "assets/thumbnail-references/auto365-channel-xpander-fortuner-20261017.png",
+      "source_sha256": "681631fa4f39f2b83f2376de3e4fc6e52411b672d189000976c2fce9b554bbfe",
+      "distributed_sha256": "681631fa4f39f2b83f2376de3e4fc6e52411b672d189000976c2fce9b554bbfe",
+      "adapted_for_public_distribution": false
+    },
+    {
+      "path": "assets/thumbnail-references/manifest.json",
+      "source_sha256": "ec378963f0cff9926b5abd85651547f3acad8e866c5914842938f419ed3cfba6",
+      "distributed_sha256": "6973b6e4fda0c5b6b78fd255466167abc25c57e71fe52d0f46f1b77bae276044",
+      "adapted_for_public_distribution": true
+    },
+    {
+      "path": "assets/thumbnail-references/user-block-type-3d-20261017.png",
+      "source_sha256": "92773364dcf9e4995ff3f34505bd7ccf1c63bd6a89012b79d64aa4752ade4d8f",
+      "distributed_sha256": "92773364dcf9e4995ff3f34505bd7ccf1c63bd6a89012b79d64aa4752ade4d8f",
+      "adapted_for_public_distribution": false
+    }
+  ]
+}

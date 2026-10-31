@@ -110,7 +110,7 @@
     "Sau lỗi hoặc kết quả không rõ, mở lại video_id hoặc kiểm danh sách trước khi thử lại; không tự upload lại.",
     "Local tool không là tác vụ nền, worker đăng hoặc OAuth/API upload."
   ],
-  "channel_profile": "workspace/channel.json",
+  "channel_profile": "WORKSPACE/channel.json (initialize from ../assets/templates/channel.example.json)",
   "editorial_stage": {
     "tool": "../scripts/youtube_editorial.py",
     "stages": [

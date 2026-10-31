@@ -1,99 +1,131 @@
-# auto365-youtube
+# Auto365 YouTube — skill Codex
 
-Skill Codex cho workflow YouTube Auto365: tự đọc video, kiểm nguồn, nghiên cứu metadata, viết mô tả đủ chiều sâu, tạo thumbnail khi được giao và đăng/xác minh qua trình duyệt tích hợp.
+Bản **1.0.16**, đồng bộ ngày **31/10/2026**. Skill giúp Codex đọc video, kiểm nguồn, viết tiêu đề/mô tả/tags/hashtag, tạo thumbnail khi áp dụng, đăng hoặc lên lịch và xác minh trong YouTube Studio.
 
-Bản phân phối **1.0.4**, giữ rules/templates/profile schema **8/2/8**. Chữ ký mới: đèn/camera/phụ kiện dùng “☎ Tư vấn đèn đồ chơi xe: 0365 365 911”; phim/PPF dùng “☎ Tư vấn phim cách nhiệt / PPF: 0587 365 365”; phản ánh chất lượng **1900.9365**, không có nhập sỉ. Bộ phân phối dùng hồ sơ kiểm tổng hợp, giữ cấu hình vận hành ngoài repo.
+## Cài đặt trên Windows
 
-## Cài vào Codex
-
-Repo Public cho phép xem và clone mà không cần đăng nhập. Không nhúng token vào URL clone. Thư mục cài phải chưa tồn tại; nếu đã có checkout, kiểm thay đổi local rồi update chính checkout ấy, không ghi đè bản chưa lưu.
-
-PowerShell trên Windows:
+Cần có Codex và Git. Chạy trong PowerShell:
 
 ```powershell
 $auto365SkillsRoot = if ($env:CODEX_HOME) { Join-Path $env:CODEX_HOME 'skills' } else { Join-Path $env:USERPROFILE '.codex\skills' }
+$auto365SkillDir = Join-Path $auto365SkillsRoot 'auto365-youtube'
 New-Item -ItemType Directory -Path $auto365SkillsRoot -Force | Out-Null
-git clone https://github.com/dinhsang1302/auto365-youtube.git (Join-Path $auto365SkillsRoot 'auto365-youtube')
+if (Test-Path -LiteralPath $auto365SkillDir) { throw 'Đã có auto365-youtube. Xem mục Cập nhật; không cài chồng.' }
+git clone https://github.com/dinhsang1302/auto365-youtube.git $auto365SkillDir
 ```
 
-macOS/Linux:
+Mở lại Codex, chọn workspace làm việc và kiểm tra skill `auto365-youtube` xuất hiện. Thư mục cài phải chứa trực tiếp `SKILL.md`, `agents`, `assets`, `references`, `scripts`; tránh lồng thêm `auto365-youtube-main` bên trong.
+
+**Không dùng Git:** chọn **Code → Download ZIP** trên GitHub, giải nén, đổi tên thư mục chứa `SKILL.md` thành `auto365-youtube`, chép vào `%USERPROFILE%\.codex\skills\` hoặc `CODEX_HOME/skills` nếu đã cấu hình. Chỉ giữ một bản cài hoạt động; bảo toàn thay đổi riêng trước khi thay bản cũ.
+
+macOS/Linux có thể clone:
 
 ```sh
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
 git clone https://github.com/dinhsang1302/auto365-youtube.git "${CODEX_HOME:-$HOME/.codex}/skills/auto365-youtube"
 ```
 
-Trong Codex, skill có thể được nhận diện ở lượt tiếp theo. Dùng vị trí mà catalog hiện tại trả về làm `SKILL_DIR`; không yêu cầu đường dẫn của máy tạo repo. Có thể tải ZIP từ GitHub, giải nén thư mục chứa SKILL.md thành `skills/auto365-youtube` tại vị trí tương ứng.
+Bản này kiểm trên Windows/Python 3.12; chưa kiểm media/Studio trên hệ điều hành khác. NAS Windows cần quyền truy cập riêng trên máy mới.
 
 ## Công cụ cần có
 
-- Python 3.12 là môi trường đã kiểm; render/validate/init-job/check chỉ dùng standard library.
-- Codex có trình duyệt tích hợp và API đọc/điều khiển/filechooser. Scripts local không phải uploader hoặc scheduler nền.
-- ImageGen có sẵn trong môi trường khi job cho phép tạo thumbnail; không tự thay bằng dịch vụ ảnh trả phí khác.
-- Khi đọc media mới: FFmpeg/FFprobe trong PATH, Pillow/faster-whisper/ctranslate2 và model local đã có. Các phiên bản đọc được trong môi trường gốc ở `requirements-media.txt`; nhánh prepare không được chạy lại trong kiểm release. Nếu cần cài, thực hiện trong virtualenv của môi trường, không cài vào repo:
-
-```sh
-python -m pip install -r SKILL_DIR/requirements-media.txt
-```
-
-- Auto365 Writer V1.8, copywriting, content-strategy được tìm theo tên trong catalog hoặc lệnh discover. Không sao chép chúng vào repo; nếu thiếu, skill có quy tắc kiểm nguồn/biên tập tự chứa và phải báo phạm vi, không nhận đã dùng guidance chưa có. Không dùng chuẩn website thay quy tắc mô tả YouTube.
-
-## Workspace và cấu hình kênh
-
-Tạo workspace **ngoài thư mục repo/skill**, rồi copy `assets/templates/channel.example.json` thành `WORKSPACE/channel.json` và `products.example.json` thành `WORKSPACE/products.json`. Mẫu có schema8, thương hiệu/hotline đã chốt và đích Auto365 Review; editor đối chiếu ID theo job. Điền registry sản phẩm bằng tên và nguồn đã kiểm cho từng video, không tự nhận SOURCE_VERIFIED cho dữ liệu chưa xác minh.
-
-Ví dụ PowerShell (thay biến bằng vị trí thực tế của môi trường):
+- **Python 3.12** là môi trường đã kiểm. Khởi tạo/render/validate/check chỉ dùng thư viện chuẩn. `render` là tạo **văn bản mô tả**, không thiết kế ảnh.
+- **Trình duyệt tích hợp Codex (IAB)** có đọc/điều khiển trang và chọn file. Đăng nhập YouTube đúng tài khoản có quyền kênh; người dùng xử lý login, OTP/CAPTCHA.
+- **FFmpeg/FFprobe trong PATH** để phân tích và trích frame video mới.
+- Nhánh đọc media mới cần **Pillow, faster-whisper, ctranslate2** và **model Whisper local**. Các phiên bản tham chiếu trong [requirements-media.txt](requirements-media.txt). Python, FFmpeg, model không nằm trong repo. Có thể dùng virtualenv ngoài skill:
 
 ```powershell
-$auto365SkillDir = Join-Path $auto365SkillsRoot 'auto365-youtube'
+python -m venv "$env:USERPROFILE\Documents\Auto365YouTubeEnv"
+& "$env:USERPROFILE\Documents\Auto365YouTubeEnv\Scripts\Activate.ps1"
+python -m pip install -r (Join-Path $auto365SkillDir 'requirements-media.txt')
+```
+
+Nếu máy chặn kích hoạt script, gọi trực tiếp Python trong virtualenv; không cần đổi chính sách bảo mật Windows. Cung cấp đường dẫn model đã có cho Codex, không tự tải model hoặc gọi API trả phí.
+
+- **ImageGen Skill và công cụ tạo ảnh thực sự** cần có khi làm thumbnail video dài hoặc được giao riêng. Shorts giữ ảnh từ video không cần ImageGen. Thiếu công cụ thì báo bước chặn, không tự thay bằng script/dịch vụ khác.
+- `auto365-writer`, `copywriting`, `content-strategy` là guidance tùy chọn. Thiếu thì dùng rules tự chứa và báo giới hạn; không nhận đã đọc skill chưa có.
+
+## Tạo workspace và cấu hình
+
+Lưu jobs **ngoài thư mục skill**. Sau bước cài, chạy PowerShell:
+
+```powershell
 $auto365Workspace = Join-Path $env:USERPROFILE 'Documents\Auto365YouTubeJobs'
 New-Item -ItemType Directory -Path $auto365Workspace -Force | Out-Null
-Copy-Item (Join-Path $auto365SkillDir 'assets\templates\channel.example.json') (Join-Path $auto365Workspace 'channel.json')
-Copy-Item (Join-Path $auto365SkillDir 'assets\templates\products.example.json') (Join-Path $auto365Workspace 'products.json')
+if (-not (Test-Path -LiteralPath (Join-Path $auto365Workspace 'channel.json'))) {
+    Copy-Item -LiteralPath (Join-Path $auto365SkillDir 'assets\templates\channel.example.json') -Destination (Join-Path $auto365Workspace 'channel.json')
+}
+if (-not (Test-Path -LiteralPath (Join-Path $auto365Workspace 'products.json'))) {
+    Copy-Item -LiteralPath (Join-Path $auto365SkillDir 'assets\templates\products.example.json') -Destination (Join-Path $auto365Workspace 'products.json')
+}
 ```
 
-Khi nâng từ bản cũ, cập nhật `signatures.<category>.phone`, `signatures.<category>.consultation_label`, `brand.quality_hotline` và `signature_template` theo mẫu mới; đừng thay toàn bộ profile làm mất cấu hình riêng. Git pull không tự thay cấu hình workspace. Nếu file đích đã có, giữ nó và kiểm thay đổi trước khi thay; không copy lại template làm mất cấu hình. `--profile` cho phép chọn profile khác của workspace. Không có ID kênh cố định trong code; profile/job/preparation/editorial/review/brief/nguồn Analytics phải cùng ID. Mẫu không chứng minh quyền hoặc phiên đăng nhập: trước ghi phải xác minh lại đúng ID/quyền trong Studio.
+Mở workspace đó trong Codex. Profile mẫu hướng tới **Auto365 Review / @ChannelAuto365**, ID `UCfSB3t7meifCacbB4zOrW3w`. Đối chiếu profile và kênh live Studio trước ghi. Registry sản phẩm khởi tạo rỗng: bổ sung tên/model/nguồn theo clip, không lấy fixture tổng hợp làm dữ kiện thật. Logo trong profile mẫu giải theo `assets/templates` của skill trong catalog, không theo vị trí bản sao profile.
 
-Chữ ký vận hành chỉ sinh từ `workspace/channel.json`, một lần, đúng tuyến tư vấn; phản ánh chất lượng **1900.9365** nằm ngay sau tư vấn, không có dòng nhập sỉ. Không thay số theo website. Không đưa VAT vào mô tả/CTA/bình luận đề xuất; nguồn thương mại đầy đủ vẫn lưu trong workspace. Không gọi giá sản phẩm là giá hoàn thiện.
+Chữ ký chỉ sinh từ `channel.json`: đèn/camera/phụ kiện **0365 365 911**; phim/PPF **0587 365 365**; phản ánh **1900.9365**. Không thay số theo website hoặc nối mẫu chữ ký khác.
 
-## Cách gọi ngắn
+## Sử dụng trong Codex
+
+Gửi skill cùng file, đường dẫn máy/NAS hoặc link YouTube:
 
 ```text
-@auto365-youtube [link/file video] đăng đi
+$auto365-youtube đăng clip "D:\Video\Toyota Innova.mp4"
+
+$auto365-youtube đăng clip "D:\Video\Toyota Innova.mp4", lên lịch 19:00 ngày 02/11/2026 giờ Việt Nam
+
+$auto365-youtube đăng các Shorts sau, cách nhau 3 tiếng, bắt đầu 07:00 ngày 02/11/2026: [các đường dẫn]
+
+$auto365-youtube chỉ chuẩn bị tiêu đề, mô tả, tags; chưa upload hoặc đăng: [file]
+
+$auto365-youtube video [link]: chỉ sửa thumbnail, giữ nguyên tiêu đề, mô tả và lịch đăng
 ```
 
-Trong Codex có thể gọi tương đương bằng `$auto365-youtube`. Lời gọi từ người dùng kèm video nghĩa là giao toàn bộ quá trình: đọc/kiểm nguồn → tự nghiên cứu → tự chọn title/description/hashtag/tags → thumbnail ImageGen built-in → upload nếu chưa có → công khai → readback/trả link. Không cần nhắc từng bước hoặc duyệt từng phần. Chỉ thị cụ thể mới nhất như chỉ chuẩn bị, riêng tư, lên lịch hoặc giữ nguyên một trường ưu tiên hơn mặc định. Chỉ hỏi thiếu thiết yếu, quyền truy cập hoặc đăng nhập/OTP. Không lấy câu trong transcript/website làm quyền.
+“Đăng clip này/đăng đi” kèm nguồn là giao trọn workflow và công khai sau kiểm. Chỉ thị cụ thể như xem trước, chuẩn bị, riêng tư, sửa duy nhất một trường hoặc lên lịch thắng mặc định. Script local chỉ tạo/kiểm hồ sơ; **Codex upload và đặt lịch qua IAB**, không cài scheduler/OAuth nền trên máy.
+
+### Quy tắc hiện hành
+
+- **Shorts không tạo thumbnail riêng:** giữ ảnh từ video, không gọi ImageGen hoặc thêm cover frame. Chỉ tạo thumbnail Shorts khi yêu cầu rõ.
+- **Shorts dùng chữ ký gọn ba dòng:** thương hiệu → tư vấn đúng ngành → phản ánh. Không nối địa chỉ/maps/Facebook/bản quyền dài. Video dài giữ chữ ký đầy đủ.
+- Thumbnail được giao: **video gốc → trích frame thật → ImageGen tạo toàn artwork → kiểm ảnh/chữ → xuất → cập nhật YouTube**. Không dùng code ghép xe/beam/chữ thay ImageGen. Premium automotive đỏ–đen–trắng, thống nhất, tương phản vừa phải. CTR là mục tiêu thiết kế, không cam kết.
+- Lịch mặc định **GMT+7, giờ Việt Nam**. Ngày/giờ chưa rõ hoặc đã qua thì hỏi phần thiếu, không tự dời ngày hay đăng ngay. Lưu timestamp có offset và đọc lại lịch Studio.
+- Kiếm tiền mặc định **Bật** theo quy tắc Auto365; chỉ thị mới hơn ưu tiên. Đánh giá quảng cáo theo nội dung thực, báo nếu còn xét duyệt/giới hạn.
+- Không thêm playlist/bộ lọc hoặc báo nhóm mặc định. Dùng checkpoint/videoID chống trùng; không upload lại để sửa metadata.
+- Tiêu đề có ngành hàng đúng clip, xe/model, hook đủ nghĩa. Không bịa thông số/giá/bảo hành/hiệu năng. Tags riêng Studio, hashtag riêng mô tả.
+- **Báo mỗi clip theo dòng/mục đánh số, có link và trạng thái hoặc lịch đăng; không kẻ bảng.** Chưa tải/xử lý/xác minh xong phải ghi đúng tình trạng.
+
+Chi tiết: [SKILL](SKILL.md), [rules](references/editorial-rules.md), [workflow](references/workflow.md), [browser](references/codex-browser-only.md), [ImageGen](references/imagegen-workflow.md), [cổng thumbnail](references/thumbnail-quality-gate.md).
+
+## Cập nhật
+
+Với bản Git, kiểm thay đổi riêng trước:
+
+```powershell
+git -C $auto365SkillDir status --short
+git -C $auto365SkillDir pull --ff-only
+```
+
+Nếu có thay đổi local, lưu lại trước; không reset/ghi đè. Bản ZIP thì tải lại và thay thư mục sau khi bảo toàn tùy chỉnh. Giữ profile/products/jobs/video trong workspace riêng. Khi nâng bản cũ, đối chiếu `shorts_signature_template`, `shorts_consultation_label`, bản quyền video dài và policy mới; không thay toàn bộ profile làm mất cấu hình riêng. Git pull không tự cập nhật profile workspace. Mở lại Codex để nạp bản mới.
+
+## Kiểm tra cài đặt
+
+Chạy trong workspace ngoài skill, không cần YouTube/model để kiểm offline:
+
+```powershell
+Set-Location -LiteralPath $auto365Workspace
+python (Join-Path $auto365SkillDir 'scripts\auto365_youtube.py') --help
+python (Join-Path $auto365SkillDir 'scripts\auto365_youtube.py') check
+python -m unittest discover -s (Join-Path $auto365SkillDir 'scripts') -p 'test_description_completeness.py' -v
+```
+
+Entrypoint duy nhất: `scripts/auto365_youtube.py`. Lệnh nâng cao (thay placeholder bằng giá trị thực):
 
 ```text
-@auto365-youtube [link/file] chỉ chuẩn bị nội dung, chưa upload hoặc đăng
-@auto365-youtube job [tên], video [ID]: sửa duy nhất mô tả bằng revision [tên]
-```
-
-Luôn kiểm checkpoint và Studio để tránh trùng. Video đã có dùng đúng ID, không upload lại để sửa metadata. Nguyên tắc gọn là bỏ thừa/lặp, giữ giải thích hữu ích; templates linh hoạt theo nội dung/định dạng, không ép count/tag/hashtag/FAQ/chapters. Timeline chỉ mốc thật có bằng chứng.
-
-## Entrypoint local và kiểm
-
-```sh
-python SKILL_DIR/scripts/auto365_youtube.py discover
-python SKILL_DIR/scripts/auto365_youtube.py init-job --workspace WORKSPACE --job jobs/clip-01 --request "đăng đi" --video VIDEO_LINK_OR_FILE
+python SKILL_DIR/scripts/auto365_youtube.py init-job --workspace WORKSPACE --job jobs/clip-01 --request "đăng clip này, lên lịch" --video VIDEO_PATH --mode schedule --publish-at 2026-11-02T19:00:00+07:00
+python SKILL_DIR/scripts/auto365_youtube.py prepare --workspace WORKSPACE --job jobs/clip-01 --video VIDEO_PATH --model-dir LOCAL_MODEL_PATH
 python SKILL_DIR/scripts/auto365_youtube.py render --workspace WORKSPACE --brief jobs/clip-01/revisions/REV/brief.json --output-dir jobs/clip-01/revisions/REV
 python SKILL_DIR/scripts/auto365_youtube.py validate --workspace WORKSPACE --job jobs/clip-01 --revision REV --output-dir reports/NEW_CHECK
 ```
 
-`prepare --video media/clip.mp4 --model-dir models/local --workspace WORKSPACE` giải cả hai đường dẫn dưới WORKSPACE, không theo cwd; đường dẫn tuyệt đối giữ nguyên.
+`--workspace` độc lập vị trí cài; CLI input tương đối tính theo workspace. Mặc định đọc `WORKSPACE/channel.json`, hoặc chọn `--profile`. Output nằm trong workspace. Không chạy lại media/ASR để sửa metadata cùng hash. Với Shorts, agent xác minh format và chuẩn hóa quyền thumbnail theo SKILL; helper chưa tự phân loại Shorts. Xem [runtime](references/runtime.md).
 
-init-job chỉ ghi quyền/checkpoint local, không fetch URL hay đăng video. Validate chọn đúng revision/hash/review; không fallback root khi thiếu revision, không ghi đè kết quả cũ, không cắt narrative_sections. Xem [schema và runtime](references/runtime.md), [workflow](references/workflow.md), [browser/thumbnail/recovery](references/browser-and-thumbnail.md), [rules8](references/editorial-rules.md).
-
-Chạy phép kiểm từ một workspace được phép ghi (fixtures tạm ở cwd/tmp), không ghi job vào repo:
-
-```sh
-python SKILL_DIR/scripts/auto365_youtube.py check
-```
-
-Đã kiểm local: prepare tìm đúng video/model khi cwd khác workspace và có file trùng tên ở cwd (các công cụ media và model được giả lập, không chạy ASR); alias “đăng đi” và các ngoại lệ → action_request đúng; ID lấy từ profile và phát hiện mismatch; chọn revision/hash, giữ nguyên giải thích; đúng hotline/một chữ ký; chặn VAT/placeholder/chữ ký cũ; relocate bundle trên Windows hiện tại; thiếu config không tự dùng config vận hành trong bundle; các relative references hợp lệ. Fixtures tạo bytes tổng hợp để kiểm hash, không phải video đã decode hay transcript thật. Kiểm cấu trúc không chứng minh claim/giọng văn; nguồn thật vẫn cần editor.
-
-Chưa kiểm toàn bộ nhánh upload/publish/lên lịch qua skill mới, phục hồi mất kết nối, media/ASR/ImageGen mới, hệ điều hành khác hoặc nguyên văn Gem gốc. Không tuyên bố những nhánh đó đã được kiểm chỉ vì check local qua.
-
-## File được phân phối
-
-SKILL.md ở gốc, README, agents/openai.yaml, references, mẫu cấu hình/templates, brief tổng hợp, scripts và phép kiểm. `.gitignore` chặn cấu hình vận hành, jobs/media/cache/log/credentials, nhưng không tự loại file đã tracked; release phải kiểm cả `git ls-files` và lịch sử commit. Không push lịch sử repo vận hành hoặc sao chép video/frame/ASR/Analytics vào bộ phân phối.
+Kiểm offline dùng bytes/brief tổng hợp, không phải media đã decode hay phép đo. Chưa kiểm toàn bộ Studio/ASR/ImageGen trên máy mới. Repo không kèm job sản xuất, transcript, Analytics, đăng nhập hoặc model. Logo/mẫu phong cách phục vụ workflow Auto365, không là giấy phép sử dụng thương hiệu tùy ý. [Bản kê đồng bộ](references/distribution-provenance.json) ghi hash nguồn và các điều chỉnh của bản GitHub.

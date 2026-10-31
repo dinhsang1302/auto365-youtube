@@ -320,10 +320,10 @@ def validate(args):
         errors.append('Product name has no verified source.')
     # Product wording belongs to the editorial review; a problem-led title does
     # not need to contain every brand/model/vehicle name.
-    from youtube_description import signature_for, public_copy_errors, permission_for
-    signature = signature_for(profile, package['category'])
+    from youtube_description import public_copy_errors, permission_for
+    video_format = (brief if brief is not None else package).get('format', '')
     from youtube_description import signature_errors
-    errors.extend(signature_errors(package['metadata']['description'], profile, package['category']))
+    errors.extend(signature_errors(package['metadata']['description'], profile, package['category'], video_format))
     policy = root / 'youtube-editorial-rules.json'
     rules = read_json(policy if policy.is_file() else skill_resource('assets/templates/editorial-rules.json'))
     if brief is not None:

@@ -1,0 +1,25 @@
+{
+  "confirmed_date": "2026-10-17",
+  "timezone": "Asia/Bangkok",
+  "purpose": "Style references only; not factual evidence for future vehicle/product/beam claims",
+  "assets": [
+    {
+      "file": "auto365-channel-mazda-creta-20261017.png",
+      "sha256": "fb0288e3351575ed862b9821a3fab6c53e940b5f95636671c82ff74bd45cdfa1",
+      "source": "Direct human attachment in current conversation",
+      "purpose": "User-supplied style reference: Mazda CX8 / Creta"
+    },
+    {
+      "file": "auto365-channel-xpander-fortuner-20261017.png",
+      "sha256": "681631fa4f39f2b83f2376de3e4fc6e52411b672d189000976c2fce9b554bbfe",
+      "source": "Direct human attachment in current conversation",
+      "purpose": "User-supplied style reference: Xpander / Fortuner"
+    },
+    {
+      "file": "user-block-type-3d-20261017.png",
+      "sha256": "92773364dcf9e4995ff3f34505bd7ccf1c63bd6a89012b79d64aa4752ade4d8f",
+      "source": "Direct human attachment in current conversation",
+      "purpose": "User-supplied supporting typography reference from same conversation"
+    }
+  ]
+}

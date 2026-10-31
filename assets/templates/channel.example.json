@@ -9,15 +9,18 @@
   "signatures": {
     "lighting": {
       "phone": "0365 365 911",
-      "consultation_label": "Tư vấn đèn đồ chơi xe"
+      "consultation_label": "Tư vấn đèn đồ chơi xe",
+      "shorts_consultation_label": "Tư vấn đèn, đồ chơi xe"
     },
     "camera": {
       "phone": "0365 365 911",
-      "consultation_label": "Tư vấn đèn đồ chơi xe"
+      "consultation_label": "Tư vấn đèn đồ chơi xe",
+      "shorts_consultation_label": "Tư vấn đèn, đồ chơi xe"
     },
     "accessories": {
       "phone": "0365 365 911",
-      "consultation_label": "Tư vấn đèn đồ chơi xe"
+      "consultation_label": "Tư vấn đèn đồ chơi xe",
+      "shorts_consultation_label": "Tư vấn đèn, đồ chơi xe"
     },
     "window_film": {
       "phone": "0587 365 365",
@@ -36,7 +39,8 @@
     "connection_changes_require_specific_authorization": true,
     "website_seo_requirements_in_youtube_description": false,
     "store_auth_secrets": false,
-    "mixed_category_signature": "Main service chooses phone; both only when both services are actually covered and separately labelled."
+    "mixed_category_signature": "Main service chooses phone; both only when both services are actually covered and separately labelled.",
+    "default_monetization": "ON"
   },
   "brand": {
     "website": "https://auto365.vn",
@@ -48,7 +52,7 @@
     "facebook": "https://www.facebook.com/Auto365.vn"
   },
   "editorial_rules": "../../references/editorial-rules.md",
-  "signature_template": "AUTO365 | Hệ thống nâng cấp xe toàn quốc\n☎ {consultation_label}: {phone}\n☎ Hotline phản ánh chất lượng dịch vụ: {quality_hotline}\n🏤 Trụ sở: 4/4/1/7 Đường Số 3, Phường Hiệp Bình, TP. Hồ Chí Minh.\nBản đồ: https://maps.app.goo.gl/sPeztDd996rHyLQM8\n► Website: https://auto365.vn\nTìm chi nhánh: https://auto365.vn/chi-nhanh\n► Facebook: https://www.facebook.com/Auto365.vn",
+  "signature_template": "AUTO365 | Hệ thống nâng cấp xe toàn quốc\n☎ {consultation_label}: {phone}\n☎ Hotline phản ánh chất lượng dịch vụ: {quality_hotline}\n🏤 Trụ sở: 4/4/1/7 Đường Số 3, Phường Hiệp Bình, TP. Hồ Chí Minh.\nBản đồ: https://maps.app.goo.gl/sPeztDd996rHyLQM8\n► Website: https://auto365.vn\nTìm chi nhánh: https://auto365.vn/chi-nhanh\n► Facebook: https://www.facebook.com/Auto365.vn\n© Bản quyền video thuộc Auto365. Vui lòng không đăng tải lại khi chưa được cho phép.",
   "signature_brand_line": "AUTO365 | Hệ thống nâng cấp xe toàn quốc",
   "phone_route_source": "signatures.<category>.phone",
   "signature_policy_source": "editorial-rules.json",
@@ -57,6 +61,21 @@
     "analytics_requires_same_channel_id_and_permission": true,
     "local_config_is_not_session_evidence": true
   },
+  "brand_assets": {
+    "white_logo": "../brand/auto365-white.png",
+    "black_logo": "../brand/auto365-black.png",
+    "source": "User-supplied original PNGs, 2026-10-15",
+    "preserve_original_geometry_colors_tagline": true,
+    "path_base": "installed_skill/assets/templates; resolve using the current skill catalog, not the workspace profile directory"
+  },
+  "copyright_policy": {
+    "notice_in_signature": true,
+    "source": "User-confirmed production ownership request 2026-10-15",
+    "scope": "Auto365-produced videos; review third-party components and licensing separately; never assert exclusive rights over others assets",
+    "unknown_or_third_party_only": "Resolve ownership before rendering this notice",
+    "notice_in_signature_scope": "Full long-form signature only; Shorts use the user-approved three-line shorts_signature_template without an appended copyright notice. Rights review still applies."
+  },
+  "shorts_signature_template": "AUTO365 | Hệ thống nâng cấp xe toàn quốc\n☎ {consultation_label}: {phone}\n☎ Hotline phản ánh: {quality_hotline}",
   "example_only": true,
   "configuration_note": "Copy to an external workspace/channel.json; verify target ID and live Studio access before writes."
 }

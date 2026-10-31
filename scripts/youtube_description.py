@@ -10,24 +10,38 @@ from pathlib import Path
 from youtube_editorial import read_json, write_json, job_directory, validate_manual_chapters, workspace_root, project_path
 
 
-def signature_for(profile, category):
+def signature_for(profile, category, video_format=''):
+    is_shorts = video_format.strip().lower() in ('short', 'shorts', 'youtube_shorts')
     phone = profile['signatures'][category]['phone']
-    label = profile['signatures'][category].get('consultation_label', 'Tư vấn')
-    signature = profile['signature_template'].format(phone=phone, consultation_label=label,
+    route = profile['signatures'][category]
+    label = route.get('consultation_label', 'Tư vấn')
+    if is_shorts:
+        label = route.get('shorts_consultation_label', label)
+    template = profile['shorts_signature_template'] if is_shorts else profile['signature_template']
+    signature = template.format(phone=phone, consultation_label=label,
                                                       quality_hotline=profile['brand']['quality_hotline'])
+    hotline_label = 'Hotline phản ánh' if is_shorts else 'Hotline phản ánh chất lượng dịch vụ'
     expected = (f"☎ {label}: {phone}\n"
-                f"☎ Hotline phản ánh chất lượng dịch vụ: {profile['brand']['quality_hotline']}")
+                f"☎ {hotline_label}: {profile['brand']['quality_hotline']}")
     if expected not in signature or signature.count(profile['signature_brand_line']) != 1:
         raise ValueError('Channel template has incorrect hotline labels, order, numbers or repeated signature.')
+    if is_shorts and signature.splitlines() != [profile['signature_brand_line'], *expected.splitlines()]:
+        raise ValueError('Shorts signature must contain only the three configured brand/contact lines.')
+    if not is_shorts and profile.get('copyright_policy', {}).get('notice_in_signature'):
+        notices = re.findall(r'©[^\n]*Auto365', signature, re.I)
+        if len(notices) != 1:
+            raise ValueError('Channel signature must contain its single configured Auto365 copyright notice.')
     return signature
 
 
-def signature_errors(description, profile, category):
-    signature = signature_for(profile, category)
+def signature_errors(description, profile, category, video_format=''):
+    signature = signature_for(profile, category, video_format)
     errors = []
     if description.count(signature) != 1 or description.count(profile['signature_brand_line']) != 1:
         errors.append('Description must contain exactly one current category signature.')
     outside = description.replace(signature, '')
+    if re.search(r'©[^\n]*auto365|bản quyền\s+video\s+thuộc\s+auto365', outside, re.I):
+        errors.append('Description contains an extra Auto365 copyright notice outside the canonical signature.')
     if re.search(r'(?:☎\s*)?(?:Tư vấn[^:\n]*|Hotline[^:\n]*)\s*:', outside, re.I) or 'AUTO365 |' in outside:
         errors.append('Description contains an extra or legacy signature/hotline block.')
     known = [phone.strip() for entry in profile['signatures'].values()
@@ -92,6 +106,19 @@ def assemble(brief, profile):
     """Each body section is written and source-reviewed by the editor, not templated."""
     if brief.get('channel_id') and brief['channel_id'] != profile['channel_id']:
         raise ValueError('Description brief belongs to a different target channel.')
+    chapters = brief.get('chapters', [])
+    # Existing evidence-checked chapters remain valid. A long video without
+    # chapters needs a deliberate, evidenced decision, never a silent omission.
+    video_format = brief.get('format', '').lower()
+    if video_format.startswith('long_form') and not chapters:
+        assessment = brief.get('timeline_review', {})
+        if (assessment.get('decision') != 'not_applicable'
+                or not assessment.get('reason') or not assessment.get('evidence')):
+            raise ValueError('Long-form description needs verified chapters or an evidenced not-applicable timeline review.')
+    rights = brief.get('rights_review', {})
+    if (profile.get('copyright_policy', {}).get('notice_in_signature')
+            and rights.get('status') in ('third_party_only', 'unknown', 'unresolved')):
+        raise ValueError('Resolve video ownership before applying the configured Auto365 copyright notice.')
     opening = brief.get('opening_lines', [])
     if not opening or any(not isinstance(line, str) or not line.strip() for line in opening):
         raise ValueError('Supply a video-specific opening; use the length justified by this video.')
@@ -123,7 +150,6 @@ def assemble(brief, profile):
         blocks.append(link['label'] + '\n' + link['url'])
     if brief.get('cta'):
         blocks.append(brief['cta'])
-    chapters = brief.get('chapters', [])
     if chapters:
         errors = validate_manual_chapters(chapters, brief['duration_seconds'])
         if errors:
@@ -131,13 +157,13 @@ def assemble(brief, profile):
         blocks.append('TIMELINE CHI TIẾT:\n' + '\n'.join(
             f"{int(c['start_seconds'])//60:02}:{int(c['start_seconds'])%60:02} {c['title']}"
             for c in chapters))
-    signature = signature_for(profile, brief['category'])
+    signature = signature_for(profile, brief['category'], video_format)
     blocks.append(signature)
     if brief.get('hashtags'):
         blocks.append(' '.join(brief['hashtags']))
     description = '\n\n'.join(blocks)
     errors = public_copy_errors(description, brief.get('pinned_comment_proposal', ''))
-    errors.extend(signature_errors(description, profile, brief['category']))
+    errors.extend(signature_errors(description, profile, brief['category'], video_format))
     if len(description) > 5000:
         errors.append('Description exceeds the YouTube character limit.')
     if errors:
