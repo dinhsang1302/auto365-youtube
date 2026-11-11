@@ -62,7 +62,7 @@ if (-not (Test-Path -LiteralPath (Join-Path $auto365Workspace 'products.json')))
 
 Mở workspace đó trong Codex. Profile mẫu hướng tới **Auto365 Review / @ChannelAuto365**, ID `UCfSB3t7meifCacbB4zOrW3w`. Đối chiếu profile và kênh live Studio trước ghi. Registry sản phẩm khởi tạo rỗng: bổ sung tên/model/nguồn theo clip, không lấy fixture tổng hợp làm dữ kiện thật. Logo trong profile mẫu giải theo `assets/templates` của skill trong catalog, không theo vị trí bản sao profile.
 
-Chữ ký chỉ sinh từ `channel.json`: đèn/camera/phụ kiện **0365 365 911**; phim/PPF **0587 365 365**; phản ánh **1900.9365**. Không thay số theo website hoặc nối mẫu chữ ký khác.
+Chữ ký chỉ sinh từ `channel.json`: đèn/camera/phụ kiện **0365 365 911**; phim/PPF **0365 365 365**; phản ánh **1900 9365**. Không thay số theo website hoặc nối mẫu chữ ký khác.
 
 ## Sử dụng trong Codex
 

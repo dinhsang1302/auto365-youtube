@@ -181,7 +181,7 @@ class InstalledEntrypointTests(unittest.TestCase):
             write_json(revision / 'brief.json', brief)
             text = assemble(brief, PROFILE)
             self.assertNotIn('Trụ sở:', text)
-            self.assertIn('☎ Hotline phản ánh: 1900.9365', text)
+            self.assertIn('☎ Hotline phản ánh: 1900 9365', text)
             metadata = read_json(revision / 'metadata.proposed.json')
             metadata.update(description=text, chapters=[])
             write_json(revision / 'metadata.proposed.json', metadata)
@@ -195,8 +195,8 @@ class InstalledEntrypointTests(unittest.TestCase):
 
     def test_hotlines_vat_and_extra_signature(self):
         lighting = signature_for(PROFILE, 'lighting'); film = signature_for(PROFILE, 'window_film')
-        self.assertIn('☎ Tư vấn đèn đồ chơi xe: 0365 365 911\n☎ Hotline phản ánh chất lượng dịch vụ: 1900.9365', lighting)
-        self.assertEqual(lighting.replace('Tư vấn đèn đồ chơi xe: 0365 365 911', 'Tư vấn phim cách nhiệt / PPF: 0587 365 365'), film)
+        self.assertIn('☎ Tư vấn đèn đồ chơi xe: 0365 365 911\n☎ Hotline phản ánh chất lượng dịch vụ: 1900 9365', lighting)
+        self.assertEqual(lighting.replace('Tư vấn đèn đồ chơi xe: 0365 365 911', 'Tư vấn phim cách nhiệt / PPF: 0365 365 365'), film)
         for category in ('camera', 'accessories'):
             self.assertEqual(signature_for(PROFILE, category), lighting)
         self.assertEqual(signature_for(PROFILE, 'ppf'), film)
@@ -209,7 +209,7 @@ class InstalledEntrypointTests(unittest.TestCase):
         legacy = copy.deepcopy(PROFILE)
         legacy['signature_template'] = legacy['signature_template'].replace('☎ Hotline phản ánh', '☎ Hotline nhập sỉ: 0369.878787\n☎ Hotline phản ánh')
         with self.assertRaises(ValueError): signature_for(legacy, 'lighting')
-        for extra in ('1900.9365', '0365 365 911', 'Giá chưa VAT', '[cần xác minh]', lighting, 'Tư vấn: 0365 365 365'):
+        for extra in ('1900 9365', '0365 365 911', 'Giá chưa VAT', '[cần xác minh]', lighting, 'Tư vấn: 0587 365 365'):
             brief = copy.deepcopy(BRIEF); brief['cta'] = extra
             with self.subTest(extra=extra), self.assertRaises(ValueError): assemble(brief, PROFILE)
         self.assertFalse(permission_for({'channel_id':PROFILE['channel_id'],'action_request':{'mode':'prepare_only','authorized_actions':[],'channel_id':PROFILE['channel_id'],'source':'Synthetic test'}}, 'edit_description', 'description-r4', 'any-hash'))

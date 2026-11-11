@@ -69,7 +69,7 @@ class DescriptionCompletenessTests(unittest.TestCase):
                          else 'Tư vấn đèn, đồ chơi xe')
                 expected = (f"AUTO365 | Hệ thống nâng cấp xe toàn quốc\n"
                             f"☎ {label}: {route['phone']}\n"
-                            "☎ Hotline phản ánh: 1900.9365")
+                            "☎ Hotline phản ánh: 1900 9365")
                 self.assertEqual(output, brief['opening_lines'][0] + '\n\n' + expected)
                 self.assertEqual(signature_errors(output, PROFILE, category, 'shorts'), [])
                 self.assertNotIn('©', output)
