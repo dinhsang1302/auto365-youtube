@@ -1,6 +1,6 @@
 # Auto365 YouTube — skill Codex
 
-Bản **1.0.16**, đồng bộ ngày **31/10/2026**. Skill giúp Codex đọc video, kiểm nguồn, viết tiêu đề/mô tả/tags/hashtag, tạo thumbnail khi áp dụng, đăng hoặc lên lịch và xác minh trong YouTube Studio.
+Bản **1.0.17**, đồng bộ ngày **18/11/2026**. Skill giúp Codex đọc video, kiểm nguồn, viết tiêu đề/mô tả/tags/hashtag, tạo thumbnail khi áp dụng, đăng hoặc lên lịch và xác minh trong YouTube Studio.
 
 ## Cài đặt trên Windows
 
@@ -32,7 +32,7 @@ Bản này kiểm trên Windows/Python 3.12; chưa kiểm media/Studio trên h�
 - **Python 3.12** là môi trường đã kiểm. Khởi tạo/render/validate/check chỉ dùng thư viện chuẩn. `render` là tạo **văn bản mô tả**, không thiết kế ảnh.
 - **Trình duyệt tích hợp Codex (IAB)** có đọc/điều khiển trang và chọn file. Đăng nhập YouTube đúng tài khoản có quyền kênh; người dùng xử lý login, OTP/CAPTCHA.
 - **FFmpeg/FFprobe trong PATH** để phân tích và trích frame video mới.
-- Nhánh đọc media mới cần **Pillow, faster-whisper, ctranslate2** và **model Whisper local**. Các phiên bản tham chiếu trong [requirements-media.txt](requirements-media.txt). Python, FFmpeg, model không nằm trong repo. Có thể dùng virtualenv ngoài skill:
+- Nhánh đọc media mới cần **Pillow, faster-whisper, ctranslate2, opencv-python-headless** và **model Whisper local**. Thumbnail clip có người: `scripts/person_frames.py` dò phân đoạn có người (model YuNet kèm sẵn ở `assets/models/`). Các phiên bản tham chiếu trong [requirements-media.txt](requirements-media.txt). Python, FFmpeg, model không nằm trong repo. Có thể dùng virtualenv ngoài skill:
 
 ```powershell
 python -m venv "$env:USERPROFILE\Documents\Auto365YouTubeEnv"

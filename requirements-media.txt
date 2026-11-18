@@ -2,3 +2,4 @@
 Pillow==12.3.0
 faster-whisper==1.2.1
 ctranslate2==4.8.1
+opencv-python-headless>=4.8  # scripts/person_frames.py (YuNet face detection)

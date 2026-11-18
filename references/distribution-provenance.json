@@ -1,6 +1,6 @@
 {
-  "skill_version": "1.0.16",
-  "date": "2026-10-31",
+  "skill_version": "1.0.17",
+  "date": "2026-11-18",
   "scope": "Current rules, templates, runtime, public brand/style assets; external workspace configuration and synthetic test fixtures.",
   "hash_policy": "source_sha256 hashes source bytes; distributed_sha256 normalizes text CRLF to LF as required by .gitattributes. PNG hashes use original bytes.",
   "excluded": [
@@ -13,8 +13,8 @@
   "files": [
     {
       "path": "SKILL.md",
-      "source_sha256": "b9a2afb9a7055b4144d652fbd8887e0a6ad9aaa713837100b853a2ebaf21ee7d",
-      "distributed_sha256": "22c455217c592d8cae1ba405832221672a523d68f8cbf35d2da371968b6e1ff9",
+      "source_sha256": "8484b62547ccc38b59d628393b10933a37f418d8e22e42d43ae24880fcc7e139",
+      "distributed_sha256": "8484b62547ccc38b59d628393b10933a37f418d8e22e42d43ae24880fcc7e139",
       "adapted_for_public_distribution": true
     },
     {
@@ -31,8 +31,8 @@
     },
     {
       "path": "references/browser-and-thumbnail.md",
-      "source_sha256": "d493c258a79d8c7ebc8ad4ed8bfce3ad768361a46401b7ac024ade251b264771",
-      "distributed_sha256": "8fd1bb9fb74802bfe1f0e7268fdbde7ce8d4d9c0390a243f560036e9a781490c",
+      "source_sha256": "ca9de58522324aa4fb3cdbf7f80783f3b9263da5948114704b48fb8ff9362e93",
+      "distributed_sha256": "ca9de58522324aa4fb3cdbf7f80783f3b9263da5948114704b48fb8ff9362e93",
       "adapted_for_public_distribution": true
     },
     {
@@ -43,20 +43,20 @@
     },
     {
       "path": "references/editorial-rules.md",
-      "source_sha256": "3631ee78357a9c791904711ed63e48520403e94bbcd37df59ceaeb209109b253",
-      "distributed_sha256": "1dc9ed1eada8bf3c6e2f376fae7fa37e7802007d532e6019200b7166f7856c87",
+      "source_sha256": "3410e3c906577185a4654fdaf62df588c63b09bcf818fe6a3cf6c35582cfd384",
+      "distributed_sha256": "3410e3c906577185a4654fdaf62df588c63b09bcf818fe6a3cf6c35582cfd384",
       "adapted_for_public_distribution": true
     },
     {
       "path": "references/imagegen-workflow.md",
-      "source_sha256": "7976631a585ade920abe92cf62d43e4191c515e8394eb284fec16a284ab2dc81",
-      "distributed_sha256": "7976631a585ade920abe92cf62d43e4191c515e8394eb284fec16a284ab2dc81",
+      "source_sha256": "eba872fc360f95d764cfa46b45af928eaefc2ff5b3a00a360ad83a2effee0acb",
+      "distributed_sha256": "eba872fc360f95d764cfa46b45af928eaefc2ff5b3a00a360ad83a2effee0acb",
       "adapted_for_public_distribution": false
     },
     {
       "path": "references/packaging-style.md",
-      "source_sha256": "b812615b603d89b66695bc9531d5f52a2db13b1846637521951a82f68ca5ab4a",
-      "distributed_sha256": "b3c2b751bdd558cb8f8bf146556c1b8249d1a5786d7bb6ecbfd801cd23bc2966",
+      "source_sha256": "56e8607e3d6e17059939e5becbf2a9f75204825dc37c7bb059bcae7928c301b9",
+      "distributed_sha256": "56e8607e3d6e17059939e5becbf2a9f75204825dc37c7bb059bcae7928c301b9",
       "adapted_for_public_distribution": true
     },
     {
@@ -67,8 +67,8 @@
     },
     {
       "path": "references/thumbnail-quality-gate.md",
-      "source_sha256": "c33dbf3d904d4f80f1fc985378171b1f246562fd9f4b2a133ab7961817147207",
-      "distributed_sha256": "4371bb482dcf8e219e4bf52e48ab39e0e9569a35a0c168d5612b5e3cdf60b434",
+      "source_sha256": "1ced093c2eac4cd67f639de625b09ad1eedccac49ebec762cb41ecc60deca59b",
+      "distributed_sha256": "1ced093c2eac4cd67f639de625b09ad1eedccac49ebec762cb41ecc60deca59b",
       "adapted_for_public_distribution": true
     },
     {
@@ -115,8 +115,8 @@
     },
     {
       "path": "scripts/test_description_completeness.py",
-      "source_sha256": "b55cf40ea4dd6d90b2f2b15e88bd223884e79185b81cbfc0594ad899bb66508a",
-      "distributed_sha256": "046bb9612f3b2041d4c295ba909885b859fd4b984f7a3d8c979f58f83700ff4a",
+      "source_sha256": "3d16ad24306e333d0c1e98136bf14150cf614c00c4565048e84ca0d7da55c4f3",
+      "distributed_sha256": "3d16ad24306e333d0c1e98136bf14150cf614c00c4565048e84ca0d7da55c4f3",
       "adapted_for_public_distribution": true
     },
     {
@@ -145,14 +145,44 @@
     },
     {
       "path": "assets/thumbnail-references/manifest.json",
-      "source_sha256": "ec378963f0cff9926b5abd85651547f3acad8e866c5914842938f419ed3cfba6",
-      "distributed_sha256": "6973b6e4fda0c5b6b78fd255466167abc25c57e71fe52d0f46f1b77bae276044",
+      "source_sha256": "7abe76b437746c541d64d71224889a7a81e67874dac7252587f4c9d7ed1cf803",
+      "distributed_sha256": "7abe76b437746c541d64d71224889a7a81e67874dac7252587f4c9d7ed1cf803",
       "adapted_for_public_distribution": true
     },
     {
       "path": "assets/thumbnail-references/user-block-type-3d-20261017.png",
       "source_sha256": "92773364dcf9e4995ff3f34505bd7ccf1c63bd6a89012b79d64aa4752ade4d8f",
       "distributed_sha256": "92773364dcf9e4995ff3f34505bd7ccf1c63bd6a89012b79d64aa4752ade4d8f",
+      "adapted_for_public_distribution": false
+    },
+    {
+      "path": "references/person-thumbnail.md",
+      "source_sha256": "c49c67a8ddb29a61f6738e04da0b988d985b3def0a886049a9a1975742dab583",
+      "distributed_sha256": "c49c67a8ddb29a61f6738e04da0b988d985b3def0a886049a9a1975742dab583",
+      "adapted_for_public_distribution": false
+    },
+    {
+      "path": "scripts/person_frames.py",
+      "source_sha256": "69ddef6c81ab9e2ec4957d8136a97913aff0b323f611a8a2110b6755ff0da04f",
+      "distributed_sha256": "69ddef6c81ab9e2ec4957d8136a97913aff0b323f611a8a2110b6755ff0da04f",
+      "adapted_for_public_distribution": false
+    },
+    {
+      "path": "assets/models/face_detection_yunet_2023mar.onnx",
+      "source_sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+      "distributed_sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+      "adapted_for_public_distribution": false
+    },
+    {
+      "path": "assets/thumbnail-references/auto365-channel-nguoi-xe-san-pham-20261118.png",
+      "source_sha256": "616cc4dec86bbc7d2a8c6d28c8e37ac06238aa2636d2c5c42f3efcf9426ac8ee",
+      "distributed_sha256": "616cc4dec86bbc7d2a8c6d28c8e37ac06238aa2636d2c5c42f3efcf9426ac8ee",
+      "adapted_for_public_distribution": false
+    },
+    {
+      "path": "assets/thumbnail-references/auto365-channel-xlight-v12-transit-20261118.png",
+      "source_sha256": "e0e69360ac15445d4c15c56a706544f826b44b304b4417ba0556e056637aadc9",
+      "distributed_sha256": "e0e69360ac15445d4c15c56a706544f826b44b304b4417ba0556e056637aadc9",
       "adapted_for_public_distribution": false
     }
   ]

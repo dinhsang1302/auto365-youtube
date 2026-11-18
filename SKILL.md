@@ -6,13 +6,15 @@ description: Biên tập và đăng video YouTube Auto365 qua trình duyệt tí
 
 metadata:
 
-  version: "1.0.16"
+  version: "1.0.17"
 
 ---
 
 
 
 # Auto365 YouTube
+
+**Thumbnail clip có người — chốt 18/11/2026:** clip có người (người dẫn/kỹ thuật viên) thì chạy `scripts/person_frames.py` chọn phân đoạn có người, thumbnail **bắt buộc kết hợp người + xe + sản phẩm**, không chỉ xe; người phải đúng người thật trong clip. Xem [thumbnail có người](references/person-thumbnail.md).
 
 **Shorts mặc định không tạo thumbnail riêng — chốt 30/10/2026.** Quy tắc ImageGen bên dưới chỉ áp dụng khi thực sự được giao tạo/sửa thumbnail; xem mục Shorts.
 

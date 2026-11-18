@@ -20,6 +20,19 @@
       "sha256": "92773364dcf9e4995ff3f34505bd7ccf1c63bd6a89012b79d64aa4752ade4d8f",
       "source": "Direct human attachment in current conversation",
       "purpose": "User-supplied supporting typography reference from same conversation"
+    },
+    {
+      "file": "auto365-channel-nguoi-xe-san-pham-20261118.png",
+      "sha256": "616cc4dec86bbc7d2a8c6d28c8e37ac06238aa2636d2c5c42f3efcf9426ac8ee",
+      "source": "Direct human attachment in current conversation",
+      "purpose": "User-supplied channel screenshot 2026-11-18: presenter + car + product thumbnails"
+    },
+    {
+      "file": "auto365-channel-xlight-v12-transit-20261118.png",
+      "sha256": "e0e69360ac15445d4c15c56a706544f826b44b304b4417ba0556e056637aadc9",
+      "source": "Direct human attachment in current conversation",
+      "purpose": "User-supplied channel screenshot 2026-11-18: X-Light V12 presenter, Transit 3 color temps"
     }
-  ]
+  ],
+  "updated_date": "2026-11-18"
 }

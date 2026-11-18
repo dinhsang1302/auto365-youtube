@@ -217,7 +217,7 @@ class InstalledEntrypointTests(unittest.TestCase):
     def test_bundle_relocates_without_original_windows_paths(self):
         with tempfile.TemporaryDirectory(dir=TEST_ROOT) as temp:
             work = Path(temp); configure(work); moved = work / 'another-location with spaces'
-            shutil.copytree(SKILL, moved, ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
+            shutil.copytree(SKILL, moved, ignore=shutil.ignore_patterns('__pycache__', '*.pyc', 'tmp', '.git'))
             result = invoke('render', '--workspace', work, '--brief', moved / 'assets/examples/brief.example.json',
                             '--output-dir', 'relocated-output', entry=moved / 'scripts/auto365_youtube.py', cwd=work)
             self.assertEqual(result.returncode, 0, result.stderr)

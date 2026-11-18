@@ -22,7 +22,7 @@ Trước thiết kế và trước upload/bàn giao, áp dụng [cổng chất l
 
 
 
-Người dùng chốt 15/10/2026: poster đèn/xe phải thể hiện sản phẩm, ánh sáng và xe thi công thực tế của job; có người hay không tùy bố cục. Ánh sáng dùng cảnh thật, không dựng chùm sáng/đổi cường độ để giả kết quả test. Nếu clip review rời không có xe thi công xác minh được, ghi rõ giới hạn, ưu tiên sản phẩm + cảnh chiếu sáng thật, không ghép xe khác thành ca của clip. Khi thiếu tư liệu thiết yếu không thể xác định thì hỏi.
+Người dùng chốt 15/10/2026: poster đèn/xe phải thể hiện sản phẩm, ánh sáng và xe thi công thực tế của job. **Cập nhật 18/11/2026: clip có người thì thumbnail bắt buộc có người + xe + sản phẩm** theo [thumbnail có người](person-thumbnail.md); chỉ clip không có người mới dùng bố cục xe + sản phẩm. Ánh sáng dùng cảnh thật, không dựng chùm sáng/đổi cường độ để giả kết quả test. Nếu clip review rời không có xe thi công xác minh được, ghi rõ giới hạn, ưu tiên sản phẩm + cảnh chiếu sáng thật, không ghép xe khác thành ca của clip. Khi thiếu tư liệu thiết yếu không thể xác định thì hỏi.
 
 
 

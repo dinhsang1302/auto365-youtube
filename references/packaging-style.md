@@ -40,10 +40,14 @@ Trước thiết kế, **mở xem ảnh**, không chỉ đọc tên file. Đưa 
 | `../assets/thumbnail-references/auto365-channel-xpander-fortuner-20261017.png` | Screenshot người dùng gửi: Xpander Cross/F10 2.0 New và Fortuner/combo đèn. Mẫu chính cho bố cục nền tối, nhấn đỏ, chữ trắng–vàng có khối, xe tràn khung và các vùng chứng minh tích hợp. |
 | `../assets/thumbnail-references/user-block-type-3d-20261017.png` | Mẫu chữ F15 V2/Chân H4 người dùng gửi trước đó: học nét khối dày, nghiêng, mặt sáng, bevel/bóng đùn và vệt đỏ; không chép nội dung F15/H4 sang SKU khác. |
 
-Hai screenshot đầu là **tham chiếu phong cách**, không là nguồn thông số, kết quả test, giá, CTR, thời lượng hoặc ảnh xe cho job mới. Không đưa phần giao diện YouTube, số lượt xem, tiêu đề dưới ảnh hay duration badge của screenshot vào thiết kế.
+| `../assets/thumbnail-references/auto365-channel-nguoi-xe-san-pham-20261118.png` | Screenshot kênh người dùng gửi 18/11/2026: học bố cục **người dẫn + xe + sản phẩm** (người đứng một bên từ eo lên, nhìn máy, chỉ/cầm sản phẩm; xe lớn; chữ khối nghiêng không đè mặt). Xem [thumbnail có người](person-thumbnail.md). |
+| `../assets/thumbnail-references/auto365-channel-xlight-v12-transit-20261118.png` | Screenshot kênh 18/11/2026: X-Light V12 Hyper 360 có người cầm/giới thiệu hộp + bóng; Transit với 3 nhiệt màu; người + bóng + vùng sáng đường. |
+
+Các screenshot là **tham chiếu phong cách**, không là nguồn thông số, kết quả test, giá, CTR, thời lượng hoặc ảnh xe cho job mới. Không đưa phần giao diện YouTube, số lượt xem, tiêu đề dưới ảnh hay duration badge của screenshot vào thiết kế.
 
 ## Những đặc điểm cần giữ đồng bộ
 
+- **Clip có người → có người**: người thật của clip đứng một bên, kết hợp xe + sản phẩm ([thumbnail có người](person-thumbnail.md)); không làm thumbnail chỉ có xe.
 - **Xe là chủ thể lớn**, thấy rõ mặt xe/vị trí sản phẩm cần nói đến. Có thể đặt xe bên trái hoặc phải theo tư liệu, không thu nhỏ thành một ô để nhường cả khung cho chữ.
 - **Poster liền mạch:** nền garage/kim loại/đường có chiều sâu, nhấn đỏ có kiểm soát; chữ, xe, sản phẩm và bằng chứng kết nối cùng bố cục. Không dùng lưới ô rời, viền đỏ dày quanh mọi ảnh hoặc ảnh ghép phẳng như slide.
 - **Chữ đậm, nghiêng và có khối**, mặt trắng/bạc sáng và vàng tươi, viền đen rõ, bevel/bóng đùn vừa đủ. Không thay bằng Arial mảnh phẳng; cũng không đùn bóng đen quá dày làm mặt chữ tối. Mẫu chữ là định hướng hình thức, không bắt buộc một tên font cụ thể.

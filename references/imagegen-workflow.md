@@ -9,7 +9,7 @@ Người dùng chốt23/10/2026 cho mọi thumbnail của dự án. Áp dụng c
 **VIDEO GỐC → TRÍCH FRAME → IMAGEGEN SKILL → KIỂM TRA → XUẤT THUMBNAIL → CẬP NHẬT YOUTUBE**
 
 1. Đọc clip, transcript và checkpoint đúng video/hash; không chạy lại những bước nguồn đã xác minh còn phù hợp.
-2. Trích frame đẹp, rõ bằng FFmpeg; chọn xe, sản phẩm/cảnh lắp và tất cả cảnh thử sáng liên quan. Xác minh model, nhãn/nhiệt màu/timestamp; mở xem từng ảnh reference.
+2. Trích frame đẹp, rõ bằng FFmpeg; chọn xe, sản phẩm/cảnh lắp và tất cả cảnh thử sáng liên quan. **Clip có người:** chạy trước `scripts/person_frames.py <video> <job>/thumbnail/person`, chọn frame người từ phân đoạn có người (mắt mở, nhìn máy, cử chỉ hướng về xe/sản phẩm) và đưa vào ImageGen cùng frame xe + sản phẩm theo [thumbnail có người](person-thumbnail.md). Xác minh model, nhãn/nhiệt màu/timestamp; mở xem từng ảnh reference.
 3. Đọc `imagegen/SKILL.md` từ catalog hiện hành và thực sự gọi công cụ `image_gen.imagegen` built-in. Không chỉ đọc skill hay viết prompt. Đưa toàn bộ reference cần thiết, logo gốc và chuỗi chữ chính xác vào lời gọi; ghi rõ vai trò từng ảnh và các chi tiết phải giữ.
 4. ImageGen trực tiếp tạo **một artwork hoàn chỉnh**: xe/sản phẩm, không gian, typography, logo và cụm so sánh ánh sáng. Không yêu cầu chỉ một nền rồi tự dựng phần còn lại.
 5. Mở chính đầu ra để kiểm nội dung/nhận diện, dấu tiếng Việt, số/model, bố cục, phối ánh sáng và khác biệt beam theo nguồn. Sai hoặc chưa đạt thì dùng ImageGen chỉnh trên chính bản đó cùng reference; không vá bằng code. Thiếu nguồn thì bổ sung nguồn, không bịa hình/kết quả.
