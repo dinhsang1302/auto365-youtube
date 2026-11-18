@@ -32,7 +32,7 @@ Agent tự chọn bản và thumbnail sau kiểm trong quyền trọn workflow, 
 
 ## Tìm guidance
 
-Ưu tiên skill trong catalog hiện tại. Helper `discover` tìm tên `auto365-writer`, `copywriting`, `content-strategy` ở project `.agents/skills` rồi `$CODEX_HOME/skills`, fallback `~/.codex/skills`; không dùng đường dẫn máy tạo bundle. Plugin-contributed skills dùng đường dẫn/resource mà catalog cung cấp. Read SKILL.md trước khi áp dụng; nếu thiếu, báo phạm vi và dùng policy nguồn/biên tập tự chứa. Chỉ lấy phần kiểm claim, văn phong, phân nhóm; không kéo chuẩn bài website vào mô tả YouTube. Bản Gem gốc chưa có, chỉ kế thừa nguyên tắc người dùng đã nêu.
+Ưu tiên skill trong catalog hiện tại. Helper `discover` tìm tên `auto365-writer`, `copywriting`, `content-strategy` ở project `.agents/skills`, `.claude/skills` rồi `$CODEX_HOME/skills` (fallback `~/.codex/skills`) và `~/.claude/skills`; không dùng đường dẫn máy tạo bundle. Plugin-contributed skills dùng đường dẫn/resource mà catalog cung cấp. Read SKILL.md trước khi áp dụng; nếu thiếu, báo phạm vi và dùng policy nguồn/biên tập tự chứa. Chỉ lấy phần kiểm claim, văn phong, phân nhóm; không kéo chuẩn bài website vào mô tả YouTube. Bản Gem gốc chưa có, chỉ kế thừa nguyên tắc người dùng đã nêu.
 
 ## Job và revision
 

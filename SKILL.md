@@ -2,17 +2,19 @@
 
 name: auto365-youtube
 
-description: Biên tập và đăng video YouTube Auto365 qua trình duyệt tích hợp; tự đọc video, kiểm nguồn, nghiên cứu metadata, tạo thumbnail khi được giao và xác minh đúng revision sau lưu. Dùng cho job video cụ thể, không tự audit toàn kênh.
+description: Biên tập và đăng video YouTube Auto365 qua trình duyệt tích hợp (Codex IAB hoặc Claude in Chrome trên Claude Code); tự đọc video, kiểm nguồn, nghiên cứu metadata, tạo thumbnail khi được giao và xác minh đúng revision sau lưu. Dùng cho job video cụ thể, không tự audit toàn kênh.
 
 metadata:
 
-  version: "1.0.17"
+  version: "1.0.18"
 
 ---
 
 
 
 # Auto365 YouTube
+
+**Chạy trên Codex và Claude Code — chốt 18/11/2026:** đầu job nhận nền tảng. Codex: giữ nguyên IAB + ImageGen built-in. Claude Code: script local y hệt, thumbnail gọi **ImageGen của Codex qua `codex exec`**, web/Studio dùng **Claude in Chrome**; mọi luật nội dung/thumbnail/quyền đăng giữ nguyên. Xem [chạy trên Claude Code](references/claude-code.md). Các chỗ ghi "IAB"/"ImageGen built-in" bên dưới hiểu theo ánh xạ đó khi chạy trên Claude Code.
 
 **Thumbnail clip có người — chốt 18/11/2026:** clip có người (người dẫn/kỹ thuật viên) thì chạy `scripts/person_frames.py` chọn phân đoạn có người, thumbnail **bắt buộc kết hợp người + xe + sản phẩm**, không chỉ xe; người phải đúng người thật trong clip. Xem [thumbnail có người](references/person-thumbnail.md).
 
@@ -24,7 +26,7 @@ Theo yêu cầu23/10/2026: đăng bình thường không thêm bước lọc dan
 
 
 
-Mọi thao tác web và xem thử HTML chỉ dùng **Codex In-app Browser (`iab`)**, kể cả agent phụ. Không tự chạy trình duyệt local/Chrome/Edge ngoài app hoặc browser riêng bằng script. Đọc [quy tắc trình duyệt Codex](references/codex-browser-only.md) trước thao tác browser/preview; trang localhost cũng phải mở trong IAB. Dùng link xem YouTube/Studio thông thường; không mở link tải CDN/videoplayback dài hoặc gọi tải media từ link video (bổ sung 19/10/2026 trong tài liệu browser).
+Mọi thao tác web và xem thử HTML chỉ dùng **Codex In-app Browser (`iab`)** (trên Claude Code: chỉ Claude in Chrome), kể cả agent phụ. Không tự chạy trình duyệt local/Chrome/Edge ngoài app hoặc browser riêng bằng script. Đọc [quy tắc trình duyệt Codex](references/codex-browser-only.md) trước thao tác browser/preview; trang localhost cũng phải mở trong IAB. Dùng link xem YouTube/Studio thông thường; không mở link tải CDN/videoplayback dài hoặc gọi tải media từ link video (bổ sung 19/10/2026 trong tài liệu browser).
 
 
 

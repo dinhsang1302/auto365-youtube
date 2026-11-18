@@ -1,5 +1,5 @@
 {
-  "skill_version": "1.0.17",
+  "skill_version": "1.0.18",
   "date": "2026-11-18",
   "scope": "Current rules, templates, runtime, public brand/style assets; external workspace configuration and synthetic test fixtures.",
   "hash_policy": "source_sha256 hashes source bytes; distributed_sha256 normalizes text CRLF to LF as required by .gitattributes. PNG hashes use original bytes.",
@@ -13,8 +13,8 @@
   "files": [
     {
       "path": "SKILL.md",
-      "source_sha256": "8484b62547ccc38b59d628393b10933a37f418d8e22e42d43ae24880fcc7e139",
-      "distributed_sha256": "8484b62547ccc38b59d628393b10933a37f418d8e22e42d43ae24880fcc7e139",
+      "source_sha256": "cd21697b8c0c19e4721ecd31b6fef62eca2d584f90b0123f64a9f72d275826b3",
+      "distributed_sha256": "cd21697b8c0c19e4721ecd31b6fef62eca2d584f90b0123f64a9f72d275826b3",
       "adapted_for_public_distribution": true
     },
     {
@@ -37,8 +37,8 @@
     },
     {
       "path": "references/codex-browser-only.md",
-      "source_sha256": "6899192161340323bff556335470db6b41297727c1e8066219cc4fbfc28b7273",
-      "distributed_sha256": "fe34054616dca29b11ac66d0c336196e5267714d8d6f2fdf0b697bb46cc78462",
+      "source_sha256": "ba531f0b3a61bf9af2313568370891db962915368e80d9040dcfc1528c43e89b",
+      "distributed_sha256": "ba531f0b3a61bf9af2313568370891db962915368e80d9040dcfc1528c43e89b",
       "adapted_for_public_distribution": true
     },
     {
@@ -49,8 +49,8 @@
     },
     {
       "path": "references/imagegen-workflow.md",
-      "source_sha256": "eba872fc360f95d764cfa46b45af928eaefc2ff5b3a00a360ad83a2effee0acb",
-      "distributed_sha256": "eba872fc360f95d764cfa46b45af928eaefc2ff5b3a00a360ad83a2effee0acb",
+      "source_sha256": "75acdbb0bbd30e51f16f1445022a350ca6d76ed8eb4b7cb55a8b991a3c605c5a",
+      "distributed_sha256": "75acdbb0bbd30e51f16f1445022a350ca6d76ed8eb4b7cb55a8b991a3c605c5a",
       "adapted_for_public_distribution": false
     },
     {
@@ -61,8 +61,8 @@
     },
     {
       "path": "references/runtime.md",
-      "source_sha256": "25835b19e8eff02b9ed9933c2523ad049d2405d15722f861ffaeca72d44dcb53",
-      "distributed_sha256": "d46ccb31652f2b09dd00a3e43af8bc5c2d4306e84b5f25b6f539ef97da05f7a5",
+      "source_sha256": "be88bd52870d7ae72e9a4def62129e2af456e702f85343de5ba24744ccecc3ad",
+      "distributed_sha256": "be88bd52870d7ae72e9a4def62129e2af456e702f85343de5ba24744ccecc3ad",
       "adapted_for_public_distribution": true
     },
     {
@@ -79,8 +79,8 @@
     },
     {
       "path": "references/browser-workflow.json",
-      "source_sha256": "6b57491418c97b86e646d4761d525e3da102d68bdc7e60475281eda4e79d0134",
-      "distributed_sha256": "9aee78b0e17bb9b2cd91156c6ae682e4728b12cb13ec59fe9c3efbcca0ae5c59",
+      "source_sha256": "d446660d8bab5d936578c8a19fcdfcdf21fcd4b09f809e5f137a748850ebb888",
+      "distributed_sha256": "d446660d8bab5d936578c8a19fcdfcdf21fcd4b09f809e5f137a748850ebb888",
       "adapted_for_public_distribution": true
     },
     {
@@ -183,6 +183,12 @@
       "path": "assets/thumbnail-references/auto365-channel-xlight-v12-transit-20261118.png",
       "source_sha256": "e0e69360ac15445d4c15c56a706544f826b44b304b4417ba0556e056637aadc9",
       "distributed_sha256": "e0e69360ac15445d4c15c56a706544f826b44b304b4417ba0556e056637aadc9",
+      "adapted_for_public_distribution": false
+    },
+    {
+      "path": "references/claude-code.md",
+      "source_sha256": "4a7e618c99255941fc23d145fdaa30d489edc1ad077c8c625de04543d5781e86",
+      "distributed_sha256": "4a7e618c99255941fc23d145fdaa30d489edc1ad077c8c625de04543d5781e86",
       "adapted_for_public_distribution": false
     }
   ]

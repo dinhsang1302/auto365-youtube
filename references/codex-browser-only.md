@@ -1,5 +1,7 @@
 # Chỉ dùng trình duyệt tích hợp Codex
 
+**Khi chạy trên Claude Code (18/11/2026):** thay IAB bằng **Claude in Chrome** (`mcp__claude-in-chrome__*`); các điều cấm còn lại giữ nguyên. Chi tiết: [claude-code.md](claude-code.md).
+
 Người dùng chốt ngày 16/10/2026: “ko tự chạy trên trình duyệt local, chỉ chạy trên trình duyệt của codex thôi”.
 
 - Mọi thao tác web, nghiên cứu, đăng nhập, YouTube Studio, upload, đọc lại kết quả và xem thử HTML/thumbnail đều dùng Codex In-app Browser (`iab`) qua công cụ browser của Codex. Quy tắc áp dụng cả agent chính và agent phụ.

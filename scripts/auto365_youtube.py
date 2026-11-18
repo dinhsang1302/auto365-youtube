@@ -16,7 +16,9 @@ def discover_guidance():
     result = {}
     for name in ('auto365-writer', 'copywriting', 'content-strategy'):
         candidates = [Path.cwd() / '.agents' / 'skills' / name / 'SKILL.md',
-                      codex_home / 'skills' / name / 'SKILL.md']
+                      Path.cwd() / '.claude' / 'skills' / name / 'SKILL.md',
+                      codex_home / 'skills' / name / 'SKILL.md',
+                      Path.home() / '.claude' / 'skills' / name / 'SKILL.md']
         found = next((path for path in candidates if path.is_file()), None)
         result[name] = {'available': found is not None,
                         'path': str(found) if found else None,

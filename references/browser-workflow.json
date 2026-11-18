@@ -4,6 +4,7 @@
   "implementation_status": "Local revision-aware validation tested; in-app browser actions executed by agent under current job authorization, not a headless publisher",
   "checked_date": "2026-10-13",
   "browser": "Codex In-app Browser",
+  "browser_on_claude_code": "Claude in Chrome (mcp__claude-in-chrome__*); see references/claude-code.md",
   "required_job_inputs": {
     "job_id": "Mã duy nhất cho mỗi yêu cầu",
     "channel_id": "ID kênh đích do người dùng cung cấp hoặc xác nhận",

@@ -1,6 +1,6 @@
-# Auto365 YouTube — skill Codex
+# Auto365 YouTube — skill Codex + Claude Code
 
-Bản **1.0.17**, đồng bộ ngày **18/11/2026**. Skill giúp Codex đọc video, kiểm nguồn, viết tiêu đề/mô tả/tags/hashtag, tạo thumbnail khi áp dụng, đăng hoặc lên lịch và xác minh trong YouTube Studio.
+Bản **1.0.18**, đồng bộ ngày **18/11/2026**. Chạy trên **Codex** và **Claude Code** (xem mục "Dùng trên Claude Code"). Skill giúp Codex đọc video, kiểm nguồn, viết tiêu đề/mô tả/tags/hashtag, tạo thumbnail khi áp dụng, đăng hoặc lên lịch và xác minh trong YouTube Studio.
 
 ## Cài đặt trên Windows
 
@@ -26,6 +26,14 @@ git clone https://github.com/dinhsang1302/auto365-youtube.git "${CODEX_HOME:-$HO
 ```
 
 Bản này kiểm trên Windows/Python 3.12; chưa kiểm media/Studio trên hệ điều hành khác. NAS Windows cần quyền truy cập riêng trên máy mới.
+
+## Dùng trên Claude Code
+
+```sh
+git clone https://github.com/dinhsang1302/auto365-youtube.git ~/.claude/skills/auto365-youtube
+```
+
+Windows (PowerShell): `git clone https://github.com/dinhsang1302/auto365-youtube.git "$env:USERPROFILE\.claude\skills\auto365-youtube"`. Mở Claude Code trong workspace job và gõ như với Codex (vd. `dùng skill auto365-youtube đăng clip "D:\Video\Innova.mp4"`). Cần thêm **Codex CLI đã đăng nhập** (Claude Code gọi ImageGen của Codex qua `codex exec` để tạo thumbnail) và **tiện ích Claude in Chrome** (đăng/sửa YouTube Studio thay IAB). Thiếu Codex thì vẫn làm metadata, thumbnail báo chặn. Chi tiết: [claude-code.md](references/claude-code.md).
 
 ## Công cụ cần có
 
