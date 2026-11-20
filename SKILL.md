@@ -6,7 +6,7 @@ description: Biên tập và đăng video YouTube Auto365 qua trình duyệt tí
 
 metadata:
 
-  version: "1.0.21"
+  version: "1.0.22"
 
 ---
 
