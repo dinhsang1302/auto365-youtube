@@ -68,6 +68,8 @@ Bổ sung người dùng ngày 17/10/2026: tiêu đề từ link bài viết c�
 
 
 
+**Bổ sung người dùng 20/11/2026 — title tự nhiên và điểm vidIQ:** (1) Viết như người thật nói/gõ tìm, tránh câu cục (chỉ ghép xe + mã + nơi làm, vd. “Toyota Fortuner dán phim cách nhiệt 3M CR BLK50 + BLK15 tại Auto365”) và tránh câu hỏi văn mẫu kiểu AI (vd. “Fortuner kính lớn hay nóng?”). Mẫu được duyệt: “Fortuner dán phim cách nhiệt 3M CR BLK: Kết quả thực tế sau khi dán” — xe + dịch vụ + sản phẩm, rồi vế sau tự nhiên như “Kết quả thực tế sau khi dán”, “Kết quả thực tế ra sao?”, “Xem thực tế”. (2) Khi Studio có vidIQ, **điểm tiêu đề phải trên 80**: gõ thử từng phương án bằng phím thật (điểm chỉ cập nhật theo sự kiện gõ), đọc điểm, chọn phương án ≥ 80 mà vẫn đúng luật claim. Không dùng gợi ý vidIQ có từ phóng đại/giật tít (“bất ngờ”, “nhất định phải”, “lột xác”) dù điểm cao. Mô tả và thẻ cũng nhắm điểm vidIQ cao: câu đầu mô tả chứa đúng cụm từ khóa chính của tiêu đề, thẻ đầu tiên khớp cụm đó.
+
 Khi viết mới title, tạo ba phương án theo góc nội dung cho phép: câu hỏi/vấn đề; sản phẩm/khác biệt có căn cứ; thi công/kết quả trên xe thật. Không bịa góc để đủ ba; góc giá chỉ dùng khi đã xác minh và phù hợp. Chọn một, đếm ký tự Unicode NFC thực tế, nêu lý do nhu cầu tìm kiếm/khớp video-thumbnail; không dự đoán CTR. Nhiệm vụ chỉ sửa description không tự viết lại title/thumbnail/tags.
 
 
