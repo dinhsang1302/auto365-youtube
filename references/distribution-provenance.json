@@ -1,5 +1,5 @@
 {
-  "skill_version": "1.0.19",
+  "skill_version": "1.0.20",
   "date": "2026-11-18",
   "scope": "Current rules, templates, runtime, public brand/style assets; external workspace configuration and synthetic test fixtures.",
   "hash_policy": "source_sha256 hashes source bytes; distributed_sha256 normalizes text CRLF to LF as required by .gitattributes. PNG hashes use original bytes.",

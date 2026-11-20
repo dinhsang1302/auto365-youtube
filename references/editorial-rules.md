@@ -114,6 +114,14 @@ Nếu giữ giá bộ đèn đã xác minh, dùng đúng giá/đơn vị:
 
 Đây là ví dụ của ca Ford Escape/AES hiện tại, không là giá mặc định mọi sản phẩm. Script dùng giá và đơn vị có nguồn của từng job, bỏ phần giá nếu không phù hợp/chưa đủ nguồn. Không khẳng định công lắp, căn chỉnh và phụ kiện luôn thành khoản riêng khi nguồn chưa xác nhận. Bảo hành ngắn, đúng thời hạn và điều kiện đã kiểm; không suy bảo hành sản phẩm sang công lắp hoặc cả combo. Giá/bảo hành đều tùy nội dung, không bắt buộc.
 
+**Bổ sung người dùng 20/11/2026 — 5 luật dữ kiện theo Auto365 Writer V2.3 (14/11/2026), áp cho title, mô tả, tags, bình luận đề xuất; VAT vẫn không nhắc:**
+
+1. **Phim cách nhiệt:** bảo hành ghi theo chính sách đúng dòng phim kèm điều kiện (vd. “eWarranty lên đến 10 năm, theo chính sách 3M”), không gắn mặc định “10 năm” cho mọi phim/ca. VLT/TSER/IRR là thông số hệ kính–phim trên kính tham chiếu trong TDS: ghi kèm điều kiện (vd. “TSER 64% trên kính Auto 75”), không coi là số của phim trên kính xe, không suy thành mức hạ nhiệt cabin/tiết kiệm. Không thêm mã phim chưa có trong danh mục hiện hành (vd. CR BLK 20, IR 35).
+2. **Claim cơ sở:** “3M Pro Shop”, “chính hãng”, “đại lý ủy quyền”, “đã đo” chỉ dùng khi có nguồn đúng cơ sở/phạm vi; không gắn “3M Pro Shop” cho clip đèn/camera hoặc chi nhánh chưa xác nhận.
+3. **Tên đèn đúng nhóm:** không gọi mọi đèn sương mù là bi gầm projector; tên nhóm, vị trí đèn, chức năng đúng sản phẩm và ca. Không viết “không cắt dây nên giữ nguyên bảo hành hãng xe”.
+4. **Ba loại bảo hành tách riêng:** bảo hành sản phẩm, bảo hành thi công, bảo hành hãng xe. Ghi rõ bảo hành của cái gì, theo chính sách nào (vd. “Đèn bảo hành 36 tháng theo chính sách X-Light”).
+5. **Giá rõ đơn vị:** ghi giá cho 1 đèn, 1 cặp hay 1 bộ; giá thiết bị hay đã lắp. Chỉ ghi “chưa gồm lắp đặt”/“đã gồm lắp” khi nguồn xác nhận.
+
 
 
 ## 6. Link, timeline và chữ ký
