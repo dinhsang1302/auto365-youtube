@@ -195,8 +195,8 @@ class InstalledEntrypointTests(unittest.TestCase):
 
     def test_hotlines_vat_and_extra_signature(self):
         lighting = signature_for(PROFILE, 'lighting'); film = signature_for(PROFILE, 'window_film')
-        self.assertIn('☎ Tư vấn đèn đồ chơi xe: 0365 365 911\n☎ Hotline phản ánh chất lượng dịch vụ: 1900 9365', lighting)
-        self.assertEqual(lighting.replace('Tư vấn đèn đồ chơi xe: 0365 365 911', 'Tư vấn phim cách nhiệt / PPF: 0365 365 365'), film)
+        self.assertIn('☎ Tư vấn đèn, camera & phụ kiện: 0365 365 911\n☎ Hotline phản ánh chất lượng dịch vụ: 1900 9365', lighting)
+        self.assertEqual(lighting.replace('Tư vấn đèn, camera & phụ kiện: 0365 365 911', 'Tư vấn phim cách nhiệt & PPF 3M: 0365 365 365'), film)
         for category in ('camera', 'accessories'):
             self.assertEqual(signature_for(PROFILE, category), lighting)
         self.assertEqual(signature_for(PROFILE, 'ppf'), film)

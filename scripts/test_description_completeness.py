@@ -65,8 +65,8 @@ class DescriptionCompletenessTests(unittest.TestCase):
                 brief = self.brief()
                 brief.update(format='shorts', category=category, chapters=[])
                 output = assemble(brief, PROFILE)
-                label = ('Tư vấn phim cách nhiệt / PPF' if category in ('window_film', 'ppf')
-                         else 'Tư vấn đèn, đồ chơi xe')
+                label = ('Tư vấn phim cách nhiệt & PPF 3M' if category in ('window_film', 'ppf')
+                         else 'Tư vấn đèn, camera & phụ kiện')
                 expected = (f"AUTO365 | Hệ thống nâng cấp xe toàn quốc\n"
                             f"☎ {label}: {route['phone']}\n"
                             "☎ Hotline phản ánh: 1900 9365")

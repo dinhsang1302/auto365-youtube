@@ -9,26 +9,26 @@
   "signatures": {
     "lighting": {
       "phone": "0365 365 911",
-      "consultation_label": "Tư vấn đèn đồ chơi xe",
-      "shorts_consultation_label": "Tư vấn đèn, đồ chơi xe"
+      "consultation_label": "Tư vấn đèn, camera & phụ kiện",
+      "shorts_consultation_label": "Tư vấn đèn, camera & phụ kiện"
     },
     "camera": {
       "phone": "0365 365 911",
-      "consultation_label": "Tư vấn đèn đồ chơi xe",
-      "shorts_consultation_label": "Tư vấn đèn, đồ chơi xe"
+      "consultation_label": "Tư vấn đèn, camera & phụ kiện",
+      "shorts_consultation_label": "Tư vấn đèn, camera & phụ kiện"
     },
     "accessories": {
       "phone": "0365 365 911",
-      "consultation_label": "Tư vấn đèn đồ chơi xe",
-      "shorts_consultation_label": "Tư vấn đèn, đồ chơi xe"
+      "consultation_label": "Tư vấn đèn, camera & phụ kiện",
+      "shorts_consultation_label": "Tư vấn đèn, camera & phụ kiện"
     },
     "window_film": {
       "phone": "0365 365 365",
-      "consultation_label": "Tư vấn phim cách nhiệt / PPF"
+      "consultation_label": "Tư vấn phim cách nhiệt & PPF 3M"
     },
     "ppf": {
       "phone": "0365 365 365",
-      "consultation_label": "Tư vấn phim cách nhiệt / PPF"
+      "consultation_label": "Tư vấn phim cách nhiệt & PPF 3M"
     }
   },
   "policies": {
@@ -49,10 +49,12 @@
     "quality_hotline": "1900 9365",
     "head_office_address": "4/4/1/7 Đường Số 3, Phường Hiệp Bình, TP. Hồ Chí Minh.",
     "head_office_map": "https://maps.app.goo.gl/sPeztDd996rHyLQM8",
-    "facebook": "https://www.facebook.com/Auto365.vn"
+    "facebook": "https://www.facebook.com/Auto365.vn",
+    "tiktok": "https://www.tiktok.com/@auto365.vn",
+    "email": "support@365group.com.vn"
   },
   "editorial_rules": "../../references/editorial-rules.md",
-  "signature_template": "AUTO365 | Hệ thống nâng cấp xe toàn quốc\n☎ {consultation_label}: {phone}\n☎ Hotline phản ánh chất lượng dịch vụ: {quality_hotline}\n🏤 Trụ sở: 4/4/1/7 Đường Số 3, Phường Hiệp Bình, TP. Hồ Chí Minh.\nBản đồ: https://maps.app.goo.gl/sPeztDd996rHyLQM8\n► Website: https://auto365.vn\nTìm chi nhánh: https://auto365.vn/chi-nhanh\n► Facebook: https://www.facebook.com/Auto365.vn\n© Bản quyền video thuộc Auto365. Vui lòng không đăng tải lại khi chưa được cho phép.",
+  "signature_template": "AUTO365 | Hệ thống nâng cấp xe toàn quốc\n☎ {consultation_label}: {phone}\n☎ Hotline phản ánh chất lượng dịch vụ: {quality_hotline}\n🏤 Trụ sở: 4/4/1/7 Đường Số 3, Phường Hiệp Bình, TP. Hồ Chí Minh.\nBản đồ: https://maps.app.goo.gl/sPeztDd996rHyLQM8\n► Website: https://auto365.vn\nTìm chi nhánh: https://auto365.vn/chi-nhanh\n► Facebook: https://www.facebook.com/Auto365.vn\n► TikTok: https://www.tiktok.com/@auto365.vn\n✉ Email: support@365group.com.vn\n© Bản quyền video thuộc Auto365. Vui lòng không đăng tải lại khi chưa được cho phép.",
   "signature_brand_line": "AUTO365 | Hệ thống nâng cấp xe toàn quốc",
   "phone_route_source": "signatures.<category>.phone",
   "signature_policy_source": "editorial-rules.json",
